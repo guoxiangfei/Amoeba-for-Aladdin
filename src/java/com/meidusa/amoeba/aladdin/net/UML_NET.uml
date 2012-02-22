@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_qb8akM37EdqwVrslYOdUDA" name="UML_NET">
+  <packagedElement xmi:type="uml:Package" xmi:id="_vMP6MDNhEeGlNfVF2n_Aew" name="com">
+    <packagedElement xmi:type="uml:Package" xmi:id="_vMP6MTNhEeGlNfVF2n_Aew" name="meidusa">
+      <packagedElement xmi:type="uml:Package" xmi:id="_vMP6MjNhEeGlNfVF2n_Aew" name="amoeba">
+        <packagedElement xmi:type="uml:Package" xmi:id="_vMP6MzNhEeGlNfVF2n_Aew" name="aladdin">
+          <packagedElement xmi:type="uml:Package" xmi:id="_vMP6NDNhEeGlNfVF2n_Aew" name="net">
+            <packagedElement xmi:type="uml:Class" xmi:id="_vMRIUDNhEeGlNfVF2n_Aew" name="AladdinClientConnectionFactory">
+              <generalization xmi:id="_vNaX0TNhEeGlNfVF2n_Aew" general="_vNaX0DNhEeGlNfVF2n_Aew"/>
+              <generalization xmi:id="_vO_FITNhEeGlNfVF2n_Aew" general="_vO_FIDNhEeGlNfVF2n_Aew"/>
+              <ownedOperation xmi:id="_vOxCsTNhEeGlNfVF2n_Aew" name="newConnectionInstance" visibility="protected">
+                <ownedParameter xmi:id="_vOxCsjNhEeGlNfVF2n_Aew" name="channel" type="_vNEZkjNhEeGlNfVF2n_Aew"/>
+                <ownedParameter xmi:id="_vOxCszNhEeGlNfVF2n_Aew" name="createStamp">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                </ownedParameter>
+                <ownedParameter xmi:id="_vOxCtDNhEeGlNfVF2n_Aew" name="return" type="_vNEZlDNhEeGlNfVF2n_Aew" direction="return"/>
+              </ownedOperation>
+              <ownedOperation xmi:id="_vO_sMDNhEeGlNfVF2n_Aew" name="newConnectionInstance" visibility="protected">
+                <ownedParameter xmi:id="_vO_sMTNhEeGlNfVF2n_Aew" name="channel" type="_vNEZkjNhEeGlNfVF2n_Aew"/>
+                <ownedParameter xmi:id="_vO_sMjNhEeGlNfVF2n_Aew" name="createStamp">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+                </ownedParameter>
+                <ownedParameter xmi:id="_vO_sMzNhEeGlNfVF2n_Aew" name="return" type="_vNEZlDNhEeGlNfVF2n_Aew" direction="return"/>
+              </ownedOperation>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class" xmi:id="_vMS9gDNhEeGlNfVF2n_Aew" name="AladdinClientConnectionManager">
+              <generalization xmi:id="_vOyQ0DNhEeGlNfVF2n_Aew" general="_vOxpwDNhEeGlNfVF2n_Aew"/>
+              <generalization xmi:id="_vPATQTNhEeGlNfVF2n_Aew" general="_vPATQDNhEeGlNfVF2n_Aew"/>
+              <ownedAttribute xmi:id="_vOy34DNhEeGlNfVF2n_Aew" name="authenticateOkPacketData" visibility="private" isStatic="true">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#byte"/>
+                <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vOy34TNhEeGlNfVF2n_Aew" value="*"/>
+                <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_vOy34jNhEeGlNfVF2n_Aew"/>
+              </ownedAttribute>
+              <ownedAttribute xmi:id="_vPA6UDNhEeGlNfVF2n_Aew" name="authenticateOkPacketData" visibility="private" isStatic="true">
+                <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#byte"/>
+                <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vPA6UTNhEeGlNfVF2n_Aew" value="*"/>
+                <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_vPA6UjNhEeGlNfVF2n_Aew"/>
+              </ownedAttribute>
+              <ownedOperation xmi:id="_vO0GADNhEeGlNfVF2n_Aew" name="connectionAuthenticateSuccess" visibility="public">
+                <ownedParameter xmi:id="_vO0GATNhEeGlNfVF2n_Aew" name="conn" type="_vNEZlDNhEeGlNfVF2n_Aew"/>
+                <ownedParameter xmi:id="_vO0GAjNhEeGlNfVF2n_Aew" name="data" type="_vNGOxzNhEeGlNfVF2n_Aew"/>
+              </ownedOperation>
+              <ownedOperation xmi:id="_vPFLwDNhEeGlNfVF2n_Aew" name="connectionAuthenticateSuccess" visibility="public">
+                <ownedParameter xmi:id="_vPFLwTNhEeGlNfVF2n_Aew" name="arg0" type="_vNEZlDNhEeGlNfVF2n_Aew"/>
+                <ownedParameter xmi:id="_vPFLwjNhEeGlNfVF2n_Aew" name="arg1" type="_vNGOxzNhEeGlNfVF2n_Aew"/>
+              </ownedOperation>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class" xmi:id="_vMUysDNhEeGlNfVF2n_Aew" name="AladdinClientConnection">
+              <generalization xmi:id="_vO0tETNhEeGlNfVF2n_Aew" general="_vO0tEDNhEeGlNfVF2n_Aew"/>
+              <generalization xmi:id="_vO8o5TNhEeGlNfVF2n_Aew" general="_vO8o5DNhEeGlNfVF2n_Aew"/>
+              <ownedOperation xmi:id="_vO3JUTNhEeGlNfVF2n_Aew" name="setSchema" visibility="public">
+                <ownedParameter xmi:id="_vO3JUjNhEeGlNfVF2n_Aew" name="schema">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                </ownedParameter>
+              </ownedOperation>
+              <ownedOperation xmi:id="_vO93AjNhEeGlNfVF2n_Aew" name="setSchema" visibility="public">
+                <ownedParameter xmi:id="_vO93AzNhEeGlNfVF2n_Aew" name="schema" type="_vO93ATNhEeGlNfVF2n_Aew"/>
+              </ownedOperation>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class" xmi:id="_vNaX0DNhEeGlNfVF2n_Aew" name="FrontendConnectionFactory"/>
+            <packagedElement xmi:type="uml:Class" xmi:id="_vOxpwDNhEeGlNfVF2n_Aew" name="MysqlClientConnectionManager"/>
+            <packagedElement xmi:type="uml:Class" xmi:id="_vO0tEDNhEeGlNfVF2n_Aew" name="MysqlClientConnection"/>
+            <packagedElement xmi:type="uml:Package" xmi:id="_vO8B0DNhEeGlNfVF2n_Aew" name="com">
+              <packagedElement xmi:type="uml:Package" xmi:id="_vO8o4DNhEeGlNfVF2n_Aew" name="meidusa">
+                <packagedElement xmi:type="uml:Package" xmi:id="_vO8o4TNhEeGlNfVF2n_Aew" name="amoeba">
+                  <packagedElement xmi:type="uml:Package" xmi:id="_vO8o4jNhEeGlNfVF2n_Aew" name="mysql">
+                    <packagedElement xmi:type="uml:Package" xmi:id="_vO8o4zNhEeGlNfVF2n_Aew" name="net">
+                      <packagedElement xmi:type="uml:Class" xmi:id="_vO8o5DNhEeGlNfVF2n_Aew" name="MysqlClientConnection"/>
+                      <packagedElement xmi:type="uml:Class" xmi:id="_vPATQDNhEeGlNfVF2n_Aew" name="MysqlClientConnectionManager"/>
+                    </packagedElement>
+                  </packagedElement>
+                  <packagedElement xmi:type="uml:Package" xmi:id="_vO-eEDNhEeGlNfVF2n_Aew" name="net">
+                    <packagedElement xmi:type="uml:Class" xmi:id="_vO_FIDNhEeGlNfVF2n_Aew" name="FrontendConnectionFactory"/>
+                  </packagedElement>
+                </packagedElement>
+              </packagedElement>
+            </packagedElement>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Package" xmi:id="_vNGOwDNhEeGlNfVF2n_Aew" name="handler">
+            <packagedElement xmi:type="uml:DataType" xmi:id="_vNGOwTNhEeGlNfVF2n_Aew" name="AladdinMessageDispatcher"/>
+          </packagedElement>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_vNEZkzNhEeGlNfVF2n_Aew" name="net">
+          <packagedElement xmi:type="uml:DataType" xmi:id="_vNEZlDNhEeGlNfVF2n_Aew" name="Connection"/>
+          <packagedElement xmi:type="uml:DataType" xmi:id="_vNEZlTNhEeGlNfVF2n_Aew" name="FrontendConnectionFactory"/>
+          <packagedElement xmi:type="uml:DataType" xmi:id="_vNGOxzNhEeGlNfVF2n_Aew" name="AuthResponseData"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Package" xmi:id="_vNGOwjNhEeGlNfVF2n_Aew" name="mysql">
+          <packagedElement xmi:type="uml:Package" xmi:id="_vNGOwzNhEeGlNfVF2n_Aew" name="net">
+            <packagedElement xmi:type="uml:DataType" xmi:id="_vNGOxDNhEeGlNfVF2n_Aew" name="MysqlClientConnectionManager"/>
+            <packagedElement xmi:type="uml:Package" xmi:id="_vNGOxTNhEeGlNfVF2n_Aew" name="packet">
+              <packagedElement xmi:type="uml:DataType" xmi:id="_vNGOxjNhEeGlNfVF2n_Aew" name="OkPacket"/>
+            </packagedElement>
+            <packagedElement xmi:type="uml:DataType" xmi:id="_vNJSEDNhEeGlNfVF2n_Aew" name="MysqlClientConnection"/>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_vNDygDNhEeGlNfVF2n_Aew" name="java">
+    <packagedElement xmi:type="uml:Package" xmi:id="_vNEZkDNhEeGlNfVF2n_Aew" name="nio">
+      <packagedElement xmi:type="uml:Package" xmi:id="_vNEZkTNhEeGlNfVF2n_Aew" name="channels">
+        <packagedElement xmi:type="uml:DataType" xmi:id="_vNEZkjNhEeGlNfVF2n_Aew" name="SocketChannel"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_vNFnsDNhEeGlNfVF2n_Aew" name="io">
+      <packagedElement xmi:type="uml:DataType" xmi:id="_vNFnsTNhEeGlNfVF2n_Aew" name="IOException"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_vO93ADNhEeGlNfVF2n_Aew" name="lang">
+      <packagedElement xmi:type="uml:DataType" xmi:id="_vO93ATNhEeGlNfVF2n_Aew" name="String"/>
+    </packagedElement>
+  </packagedElement>
+</uml:Model>
