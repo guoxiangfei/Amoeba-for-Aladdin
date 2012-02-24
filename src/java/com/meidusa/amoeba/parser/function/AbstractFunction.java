@@ -23,29 +23,37 @@ import com.meidusa.amoeba.parser.expression.Expression;
 public abstract class AbstractFunction implements Function {
 	
 	protected String name;
-	
+	/**
+	 * 构造函数，给name赋值
+	 * @param functionName
+	 */
 	public AbstractFunction(String functionName){
 		this.name = functionName;
 	}
 	
 	public AbstractFunction(){}
-
+	/**
+	 * 返回name的值
+	 */
 	public String getName() {
 		return name;
 	}
-
+	/**
+	 * 设定name的值
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
-
+	/**
+	 * 
+	 */
 	public void toString(List<Expression> list,StringBuilder builder) {
-		
 		if(list == null){
 			builder.append(getName());
 			builder.append("(");
 			builder.append(")");
 		}else{
-			int current = 0;
+			int current = 0;//这个变量好像没什么用
 			builder.append(getName());
 			builder.append("(");
 			for(Expression e:list){
@@ -64,5 +72,4 @@ public abstract class AbstractFunction implements Function {
 		toString(null,builder);
 		return builder.toString();
 	}
-
 }

@@ -43,7 +43,7 @@ public class AndExpression extends BaseExpressionList {
         return new OrExpression(null);
     }
     /**
-     * 在builder中加一个And
+     * 
      */
     protected void toString(StringBuilder builder) {
         this.toString(builder, " AND ");

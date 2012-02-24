@@ -45,6 +45,10 @@ public abstract class Expression {
     @SuppressWarnings("unchecked")
     public abstract Comparable evaluate(Object[] parameters);
 
+    /**
+     * 重载toString
+     * 表达式基类Expression最开始的toString,实际上就是返回null
+     */
     public String toString() {
         StringBuilder builder = new StringBuilder();
         this.toString(builder);

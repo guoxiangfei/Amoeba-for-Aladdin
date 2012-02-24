@@ -22,14 +22,21 @@ public class ColumnExpression extends Expression {
 	private Column column;
 	private ComparisonExpression expression;
 	
+	//得到列？？
 	public Column getColumn() {
 		return column;
 	}
-
+	/**
+	 * 给列column赋值
+	 * @param column
+	 */
 	public void setColumn(Column column) {
 		this.column = column;
 	}
-
+	/**
+	 * 给变量expression赋值
+	 * @param expression
+	 */
 	public void setExpression(ComparisonExpression expression){
 		this.expression = expression;
 	}
@@ -54,13 +61,19 @@ public class ColumnExpression extends Expression {
 	public boolean isRealtime(){
 		return expression.isRealtime();
 	}
-	
+	/* 表达式计算
+	 * (non-Javadoc)
+	 * @see com.meidusa.amoeba.parser.expression.Expression#evaluate(java.lang.Object[])
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public Comparable evaluate(Object[] parameters) {
 		return expression.evaluate(parameters);
 	}
 	
+	/**
+	 * 转化成字符串
+	 */
 	public String toString(){
 		StringBuilder builder = new StringBuilder();
 		toString(builder);

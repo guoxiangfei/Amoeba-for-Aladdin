@@ -36,9 +36,11 @@ public class OrExpression extends BaseExpressionList {
 		return Boolean.FALSE;
 	}
 	
+	//???
 	protected  BaseExpressionList getReverseObject(){
 		return new AndExpression(null);
 	}
+	
 	
 	protected void toString(StringBuilder builder){
 		this.toString(builder, " OR ");

@@ -27,32 +27,48 @@ public class FunctionExpression extends Expression {
 
     private Function         function;
     private List<Expression> argList = new ArrayList<Expression>();
-
+    /**
+     * 得到argList（List<Expression>类型）
+     * @return
+     */
     public List<Expression> getArgList() {
         return argList;
     }
-
+    /**
+     * 设定argList（List<Expression>类型）
+     * @param argList
+     */
     public void setArgList(List<Expression> argList) {
         this.argList = argList;
     }
 
     /**
-     * 往函数表达式 增加 表达式参数
+     * 将expression添加到argList中
      * 
      * @param expression
      */
     public void addArgExpression(Expression expression) {
         argList.add(expression);
     }
-
+    
+    /**
+     * 得到变量function的值（Function类型）
+     * @return
+     */
     public Function getFunction() {
         return function;
     }
 
+    /**
+     * 设定function的值（Function类型）
+     * @param function
+     */
     public void setFunction(Function function) {
         this.function = function;
     }
-
+    /**
+     * 表达式是否实时计算
+     */
     public boolean isRealtime() {
         boolean isRealTime = (function instanceof RealtimeCalculator);
         if (isRealTime) return true;
@@ -64,6 +80,9 @@ public class FunctionExpression extends Expression {
         return false;
     }
 
+    /**
+     * 返回function计算的结果
+     */
     @SuppressWarnings("unchecked")
     @Override
     public Comparable evaluate(Object[] parameters) {
@@ -74,12 +93,16 @@ public class FunctionExpression extends Expression {
             return null;
         }
     }
-
+    /**
+     * 表达式取反，实际上改表达式并没有做任何变化
+     */
     @Override
     public Expression reverse() {
         return this;
     }
-
+    /**
+     * ????
+     */
     @Override
     protected void toString(StringBuilder builder) {
         function.toString(argList, builder);

@@ -31,7 +31,10 @@ public abstract class BaseExpressionList extends Expression {
             addExpression(expression);
         }
     }
-
+    /**
+     * 得到表达式eList
+     * @return
+     */
     public List<Expression> getAllExpression() {
         return eList;
     }
@@ -42,7 +45,7 @@ public abstract class BaseExpressionList extends Expression {
     public boolean isRealtime() {
         for (Expression e : eList) {
             if (e.isRealtime()) {
-                return true;
+                return true;//只要eList中的任意一个表达式实时计算，该表达式就实时计算
             }
         }
         return false;
@@ -51,7 +54,7 @@ public abstract class BaseExpressionList extends Expression {
     protected abstract BaseExpressionList getReverseObject();
 
     /**
-     * 表达式取反
+     * 将eList中的每一个元素取反，并且按照原来的顺序放到一个新的list中
      */
     @Override
     public Expression reverse() {
@@ -81,7 +84,7 @@ public abstract class BaseExpressionList extends Expression {
     }
 
     /***
-     * 目前还不是很清楚
+     *  把eList中的所有元素append到builder中，并在这串字符串前后加入"("和")"
      * @param builder
      * @param concatString
      */
@@ -91,7 +94,7 @@ public abstract class BaseExpressionList extends Expression {
             builder.append("(");
         }
         for (Expression e : eList) {
-            e.toString(builder);
+            e.toString(builder);//????
             current++;
             if (current != eList.size()) {
                 builder.append(concatString);
@@ -100,5 +103,6 @@ public abstract class BaseExpressionList extends Expression {
         if (eList.size() >= 2) {
             builder.append(")");
         }
+//        System.out.println(builder);
     }
 }
