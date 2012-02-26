@@ -36,7 +36,10 @@ public class PropertyStatment extends AbstractStatment  {
 	public Expression getValue(String key){
 		return this.properties.get(key==null?null:key.toLowerCase());
 	}
-
+	/**
+	 * 返回Map<String,Expression>类型的值properties
+	 * @return properties
+	 */
 	public Map<String, Expression> getProperties() {
 		return properties;
 	}

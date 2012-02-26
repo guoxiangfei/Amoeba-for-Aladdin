@@ -18,6 +18,9 @@ package com.meidusa.amoeba.parser.statment;
  */
 public class SelectStatment extends DMLStatment {
 
+	/**
+	 * ·µ»Øtrue
+	 */
 	@Override
 	public boolean isReadStatment() {
 		return true;

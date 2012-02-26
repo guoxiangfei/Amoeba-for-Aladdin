@@ -23,7 +23,9 @@ import com.meidusa.amoeba.sqljep.ParseException;
  *
  */
 public class Concat extends AbstractFunction {
-
+	/**
+	 * 暂时理解为把list中的所有元素连接在一起
+	 */
 	@SuppressWarnings("unchecked")
 	public Comparable evaluate(List<Expression> list, Object[] parameters)
 			throws ParseException {

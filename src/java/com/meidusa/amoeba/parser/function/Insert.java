@@ -7,6 +7,13 @@ import com.meidusa.amoeba.sqljep.ParseException;
 
 public class Insert extends AbstractFunction {
 
+	/**
+	 * 把list中的第一个元素list[0]传入参数parameters，进行计算得到String类型变量param1
+	 * 把list中的第一个元素list[1]传入参数parameters，进行计算得到Long类型变量param2
+	 * 把list中的第一个元素list[2]传入参数parameters，进行计算得到Long类型变量param3
+	 * 把list中的第一个元素list[3]传入参数parameters，进行计算得到String类型变量param4
+	 * 把param1中的从param2开始的连续param3个元素替换成param4
+	 */
 	@SuppressWarnings("unchecked")
     public Comparable evaluate(List<Expression> list, Object[] parameters)
 			throws ParseException {
@@ -24,14 +31,21 @@ public class Insert extends AbstractFunction {
 		return insert(param1,param2.intValue(),param3.intValue(),param4);
 	}
 	
-	
+	/**
+	 * 把字符串param1从pos开始的连续length个元素替换成newStr
+	 * @param param1
+	 * @param pos
+	 * @param length
+	 * @param newStr
+	 * @return
+	 */
 	public static String insert(String param1,int pos, int length,String newStr){
 		if(param1 == null){
 			return null;
 		}
 		
-		
 		if(pos<=0) return param1;
+		
 		pos = pos>param1.length()?param1.length():pos;
 		//length = length >= param1.length() - pos-1?param1.length() - pos-1:length;
 		String str1 = param1.substring(0,pos-1);
@@ -48,7 +62,7 @@ public class Insert extends AbstractFunction {
 		return builder.toString();
 	}
 
-	public static void main(String args[]){
-		System.out.println(insert("Quadratic", 3, 4, "What"));
-	}
+//	public static void main(String args[]){
+//		System.out.println(insert("Quadratic", 3, 3, "What"));
+//	}
 }

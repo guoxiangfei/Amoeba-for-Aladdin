@@ -42,27 +42,44 @@ public abstract class DMLStatment extends AbstractStatment {
     private Map<Table, Map<Column, Comparative>> evaluatedTableMap;
 
     public abstract boolean isReadStatment();
-
+    /**
+     * 设定expression的值
+     * @param expression
+     */
     public void setExpression(Expression expression) {
         this.expression = expression;
     }
-
+    /**
+     * 返回expression的值
+     */
     public Expression getExpression() {
         return expression;
     }
-
+    /**
+     * 
+     * @return tables
+     */
     public Table[] getTables() {
         return tables;
     }
-
+    /**
+     * 设定tables的值
+     * @param tables
+     */
     public void setTables(Table[] tables) {
         this.tables = tables;
     }
-
+    /**
+     * 
+     * @return preparedStatment
+     */
     public boolean isPreparedStatment() {
         return preparedStatment;
     }
-
+    /**
+     * 设定preparedStatment的值
+     * @param preparedStatment
+     */
     public void setPreparedStatment(boolean preparedStatment) {
         this.preparedStatment = preparedStatment;
     }
@@ -90,7 +107,12 @@ public abstract class DMLStatment extends AbstractStatment {
         }
         return currentEvaluatedTableMap;
     }
-
+    /**
+     * ???????????
+     * @param expression
+     * @param tablesMap
+     * @param parameters
+     */
     protected static void evaluateExpression(Expression expression, Map<Table, Map<Column, Comparative>> tablesMap,
                                              Object[] parameters) {
         if (expression instanceof BaseExpressionList) {
@@ -106,7 +128,12 @@ public abstract class DMLStatment extends AbstractStatment {
             columnMap.put(colExpression.getColumn(), (Comparative) colExpression.evaluate(parameters));
         }
     }
-
+    /**
+     * ????
+     * @param elist
+     * @param tablesMap
+     * @param parameters
+     */
     protected static void evaluateExpression(BaseExpressionList elist, Map<Table, Map<Column, Comparative>> tablesMap,
                                              Object[] parameters) {
         boolean and = false;

@@ -23,19 +23,26 @@ import com.meidusa.amoeba.sqljep.ParseException;
  */
 public class Add extends AbstractFunction {
 
+	/**
+	 * 取list中的第 0个元素和list中的第1个元素，如果这两个元素都可以计算，那么？？？
+	 */
 	@SuppressWarnings("unchecked")
 	public Comparable evaluate(List<Expression> list,Object[] parameters) throws ParseException {
 		if(list.size()==2){
 			Expression e1 = list.get(0);
 			Expression e2 = list.get(1);
 			if(e1.canEvaluate() && e2.canEvaluate()){
+				//????
 				Comparable comparable = com.meidusa.amoeba.sqljep.function.Add.add(e1.evaluate(parameters),e2.evaluate(parameters));
 				return comparable;
 			}
 		}
 		return null;
 	}
-
+	/**
+	 * 对list中的第0个元素、" + "、第二个元素加入到builder中，表示这两个元素执行加法运算
+	 * "list[0] + list[1]"
+	 */
 	public void toString(List<Expression> list,StringBuilder builder) {
 		builder.append(list.get(0).toString());
 		builder.append(" ");
@@ -43,7 +50,9 @@ public class Add extends AbstractFunction {
 		builder.append(" ");
 		builder.append(list.get(1).toString());
 	}
-
+	/**
+	 * 返回"+"
+	 */
 	public String getName() {
 		return "+";
 	}

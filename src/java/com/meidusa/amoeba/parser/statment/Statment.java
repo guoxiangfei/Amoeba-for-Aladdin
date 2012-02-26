@@ -15,7 +15,7 @@ package com.meidusa.amoeba.parser.statment;
 import com.meidusa.amoeba.parser.expression.Expression;
 
 /**
- * 
+ * statement»ùÀà
  * @author <a href=mailto:piratebase@sina.com>Struct chen</a>
  *
  */

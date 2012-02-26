@@ -19,6 +19,10 @@ import com.meidusa.amoeba.sqljep.ParseException;
 
 public class Divide extends AbstractFunction {
 
+	/**
+	 * list中的两个元素做除法运算
+	 * list[0]/list[1]
+	 */
 	@SuppressWarnings("unchecked")
 	public Comparable evaluate(List<Expression> list, Object[] parameters)
 			throws ParseException {

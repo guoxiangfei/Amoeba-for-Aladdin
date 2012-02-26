@@ -23,7 +23,9 @@ import com.meidusa.amoeba.sqljep.ParseException;
  *
  */
 public class CurrentDate extends AbstractFunction implements RealtimeCalculator{
-
+	/**
+	 * 得到当前时间的天，譬如如果2012.02.26，该函数换回26
+	 */
 	@SuppressWarnings("unchecked")
 	public Comparable evaluate(List<Expression> list, Object[] parameters)
 			throws ParseException {

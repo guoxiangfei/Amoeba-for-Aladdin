@@ -19,13 +19,21 @@ import com.meidusa.amoeba.parser.expression.Expression;
 /**
  * 
  * @author <a href=mailto:piratebase@sina.com>Struct chen</a>
- *
+ * 
  */
-public class Now extends AbstractFunction implements RealtimeCalculator{
-
+public class Now extends AbstractFunction implements RealtimeCalculator {
+	/*
+	 * 返回当前的时间，精确到微妙，譬如 2012-02-26 18:43:46.187
+	 * (non-Javadoc)
+	 * @see com.meidusa.amoeba.parser.function.Function#evaluate(java.util.List, java.lang.Object[])
+	 */
 	@SuppressWarnings("unchecked")
-	public Comparable evaluate(List<Expression> list,Object[] parameters) {
+	public Comparable evaluate(List<Expression> list, Object[] parameters) {
 		return new Timestamp(System.currentTimeMillis());
 	}
 
+//	public static void main(String args[]) {
+//		Comparable num = new Timestamp(System.currentTimeMillis());
+//		System.out.println(num.toString());
+//	}
 }

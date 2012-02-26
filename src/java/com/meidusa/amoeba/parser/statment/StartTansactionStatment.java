@@ -15,6 +15,9 @@ import com.meidusa.amoeba.parser.expression.Expression;
 
 public class StartTansactionStatment extends AbstractStatment  {
 
+	/**
+	 * ·µ»Ønull
+	 */
 	public Expression getExpression() {
 		// TODO Auto-generated method stub
 		return null;

@@ -83,7 +83,7 @@ public class ToDate extends PostfixCommand {
 		}
 	}
 	
-	public static void main(String[] args) throws ParseException{
+	public static void main(String args[]) throws ParseException{
 		System.out.println(to_date("99-00-00 00:00:0000"));
 		
 		Date.valueOf("1999-11-21").getTime();

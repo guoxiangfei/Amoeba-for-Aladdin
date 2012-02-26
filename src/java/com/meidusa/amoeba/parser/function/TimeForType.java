@@ -29,6 +29,9 @@ public class TimeForType extends AbstractFunction{
 	public static final int MILLISECOND = 14;
 	public static final int MICROSECOND = 21;
 	private int field;
+	/**
+	 * 时间的变换
+	 */
 	@SuppressWarnings("unchecked")
 	public Comparable evaluate(List<Expression> list, Object[] parameters)
 			throws ParseException {
@@ -53,12 +56,25 @@ public class TimeForType extends AbstractFunction{
 		}
 		return null;
 	}
+	/**
+	 * 返回field的值
+	 * @return
+	 */
 	public int getField() {
 		return field;
 	}
+	/**
+	 * 重试设置field的值
+	 * @param field 时间的filed字段
+	 */
 	public void setField(int field) {
 		this.field = field;
 	}
 	
-	
+//	public static void main(String args[]){
+//		Calendar cal = Calendar.getInstance();
+//		int result = cal.get(MILLISECOND);
+//		System.out.println(cal.getTime());
+//		System.out.println(result);
+//	}
 }

@@ -28,6 +28,9 @@ public class ToDate extends AbstractFunction {
 		super(name);
 	}
 	
+	/**
+	 * ??????
+	 */
 	@SuppressWarnings("unchecked")
 	public Comparable evaluate(List<Expression> list,Object[] parameters) throws ParseException {
 		Comparable result = null;

@@ -17,7 +17,7 @@ import com.meidusa.amoeba.parser.expression.Expression;
 import com.meidusa.amoeba.sqljep.ParseException;
 
 /**
- * 
+ * 函数Function类基类
  * @author <a href=mailto:piratebase@sina.com>Struct chen</a>
  *
  */

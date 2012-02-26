@@ -11,6 +11,7 @@
  */
 package com.meidusa.amoeba.parser.function;
 
+import java.math.BigDecimal;
 import java.util.Iterator;
 import java.util.List;
 
@@ -19,17 +20,27 @@ import com.meidusa.amoeba.sqljep.ParseException;
 
 public class Modulus extends AbstractFunction {
 
+	/**
+	 * 求list[0]和list[1]的模
+	 * list[0].reminder(list[1])
+	 */
 	@SuppressWarnings("unchecked")
 	public Comparable evaluate(List<Expression> list, Object[] parameters)
 			throws ParseException {
 		Comparable param1 = null;
-		if(list.size()>=2){
-			Iterator<Expression> it =list.iterator();
+		if (list.size() >= 2) {
+			Iterator<Expression> it = list.iterator();
 			param1 = it.next().evaluate(parameters);
 			Comparable param2 = it.next().evaluate(parameters);
-			param1 = com.meidusa.amoeba.sqljep.function.Modulus.remainder(param1, param2);
+			param1 = com.meidusa.amoeba.sqljep.function.Modulus.remainder(
+					param1, param2);
 		}
 		return param1;
 	}
 
+	public static void main(String args[]) {
+		int a = 124;
+		int b = 100;
+		System.out.println(a % b);
+	}
 }

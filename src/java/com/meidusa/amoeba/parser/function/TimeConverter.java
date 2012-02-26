@@ -31,7 +31,9 @@ public class TimeConverter extends AbstractFunction {
 	public void setDefaultField(int defaultfield) {
 		this.defaultField = defaultfield;
 	}
-
+	/**
+	 * 利用list中的元素计算得到想要的时间
+	 */
 	@SuppressWarnings("unchecked")
 	public Comparable evaluate(List<Expression> list, Object[] parameters)
 			throws ParseException {
@@ -53,7 +55,6 @@ public class TimeConverter extends AbstractFunction {
 		
 		Calendar cal = Calendar.getInstance();
 		
-		
 		if(defaultField == -1){
 			return converter((String)param1);
 		}else{
@@ -69,7 +70,11 @@ public class TimeConverter extends AbstractFunction {
 			return cal.getTime();
 		}
 	}
-	
+	/**
+	 * 时间转化函数？？？目前不清楚具体是做什么用的
+	 * @param param1
+	 * @return
+	 */
 	public static Date converter(String param1){
 		param1 = param1.trim();
 		StringTokenizer tokenizer = new StringTokenizer(param1," ");
@@ -113,7 +118,11 @@ public class TimeConverter extends AbstractFunction {
 		}else{
 			return Time.valueOf(time);
 		}
-		
 	}
+	
+//	public static void main(String args[]){
+//		Calendar tmp = Calendar.getInstance();
+//		System.out.println(tmp.getTime().toString());
+//	}
 
 }

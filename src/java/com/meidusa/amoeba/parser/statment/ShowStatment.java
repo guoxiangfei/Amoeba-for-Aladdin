@@ -16,9 +16,17 @@ import com.meidusa.amoeba.parser.expression.Expression;
 public class ShowStatment extends AbstractStatment  {
 	public static ShowStatment  STATMENT = new ShowStatment();
 	private Expression expression;
+	
+	/**
+	 * @return expression
+	 */
 	public Expression getExpression() {
 		return expression;
 	}
+	/**
+	 * 设定expression的值
+	 * @param expression
+	 */
 	public void setExpression(Expression expression) {
 		this.expression = expression;
 	}

@@ -17,7 +17,9 @@ import com.meidusa.amoeba.parser.expression.Expression;
 import com.meidusa.amoeba.sqljep.ParseException;
 
 public class Multiply extends AbstractFunction {
-
+	/**
+	 * list[0]和list[1]进行乘法运算
+	 */
 	@SuppressWarnings("unchecked")
 	public Comparable evaluate(List<Expression> list, Object[] parameters)
 			throws ParseException {

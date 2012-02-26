@@ -18,7 +18,9 @@ package com.meidusa.amoeba.parser.statment;
  *
  */
 public class DeleteStatment extends DMLStatment {
-
+	/**
+	 * @return false
+	 */
 	@Override
 	public boolean isReadStatment() {
 		return false;

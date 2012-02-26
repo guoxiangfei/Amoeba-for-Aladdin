@@ -20,6 +20,9 @@ import com.meidusa.amoeba.sqljep.JepRuntime;
 import com.meidusa.amoeba.sqljep.ParseException;
 
 public class Abs extends PostfixCommand {
+	/**
+	 * 返回参数的个数，因为这个类是用于求绝对值，所以参数个数为1
+	 */
 	final public int getNumberOfParameters() {
 		return 1;
 	}
@@ -30,7 +33,12 @@ public class Abs extends PostfixCommand {
 		return new Comparable<?>[]{param};
 	}
 
-	
+	/**
+	 * 根据参数param的类型，求param的绝对值
+	 * @param param
+	 * @return
+	 * @throws ParseException
+	 */
 	public static Comparable<?>  abs(Comparable<?>  param) throws ParseException {
 		if (param == null) {
 			return null;

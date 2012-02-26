@@ -45,7 +45,8 @@ public abstract class AbstractFunction implements Function {
 		this.name = name;
 	}
 	/**
-	 * 
+	 * 把变量list中的所有元素用","隔开，并用"("和")"把这些字符串包含起来
+	 * "(list[0],list[1],....,list[n-1])"
 	 */
 	public void toString(List<Expression> list,StringBuilder builder) {
 		if(list == null){
@@ -66,7 +67,9 @@ public abstract class AbstractFunction implements Function {
 			builder.append(")");
 		}
 	}
-	
+	/**
+	 * 返回"()"
+	 */
 	public String toString(){
 		StringBuilder builder = new StringBuilder();
 		toString(null,builder);

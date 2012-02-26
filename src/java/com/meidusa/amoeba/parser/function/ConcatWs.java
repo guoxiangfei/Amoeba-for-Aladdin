@@ -24,6 +24,10 @@ import com.meidusa.amoeba.sqljep.ParseException;
  */
 public class ConcatWs extends AbstractFunction {
 
+	/**
+	 * 把list中的元素使用parameters计算得到的分隔符进行分割
+	 * "list[0],sparator,list[1],sparator,list[2]..."
+	 */
 	@SuppressWarnings("unchecked")
 	public Comparable evaluate(List<Expression> list, Object[] parameters)
 			throws ParseException {

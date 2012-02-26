@@ -23,20 +23,26 @@ import com.meidusa.amoeba.sqljep.ParseException;
  *
  */
 public class Sub extends AbstractFunction{
-
+	/**
+	 * 对list[0]和list[1]进行减法运算
+	 */
 	@SuppressWarnings("unchecked")
 	public Comparable evaluate(List<Expression> list,Object[] parameters) throws ParseException {
 		Comparable param1 = list.get(0).evaluate(parameters);
 		Comparable param2 = list.get(1).evaluate(parameters);
 		return Subtract.sub(param1, param2);
 	}
-
+	/**
+	 * 把"list[0] - list[1]"加入字符串
+	 */
 	public void toString(List<Expression> list,StringBuilder builder) {
 		builder.append(list.get(0));
 		builder.append(" - ");
 		builder.append(list.get(1));
 	}
-
+	/**
+	 * 返回"-"
+	 */
 	public String getName() {
 		return "-";
 	}
