@@ -120,7 +120,8 @@ public class DOMConfigurator extends org.apache.log4j.xml.DOMConfigurator {
     }
 
     /**
-     * 使用XML文件配置log4j，同时监控文件的更改。此方法将创建一个监控线程，该线程第隔指定时间就会检查文件是否被创建或改变，如果是，则从文件中读取log4j配置。
+     * 使用XML文件配置log4j，同时监控文件的更改。
+     * 此方法将创建一个监控线程，该线程第隔指定时间就会检查文件是否被创建或改变，如果是，则从文件中读取log4j配置。
      *
      * @param filename 配置文件名
      * @param interval 监控线程检查间隔（ms）
@@ -133,7 +134,8 @@ public class DOMConfigurator extends org.apache.log4j.xml.DOMConfigurator {
     }
 
     /**
-     * 使用XML文件配置log4j，同时监控文件的更改。此方法将创建一个监控线程，该线程第隔指定时间就会检查文件是否被创建或改变，如果是，则从文件中读取log4j配置。
+     * 使用XML文件配置log4j，同时监控文件的更改。
+     * 此方法将创建一个监控线程，该线程第隔指定时间就会检查文件是否被创建或改变，如果是，则从文件中读取log4j配置。
      *
      * @param filename 配置文件名
      * @param props 可在配置文件中被引用的属性

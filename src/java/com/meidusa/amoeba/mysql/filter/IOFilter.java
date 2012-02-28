@@ -19,7 +19,7 @@ import com.meidusa.amoeba.mysql.filter.FilterInvocation.Result;
  *
  */
 public interface IOFilter {
-	//主要用于拦截和过滤IO操作中的各种信息 @knight
+	//主要用于拦截和过滤IO操作中的各种信息
 	public void startFiltrate();
 	public Result doFilter(PacketFilterInvocation invocation);
 	public byte[] getFiltedResult();
