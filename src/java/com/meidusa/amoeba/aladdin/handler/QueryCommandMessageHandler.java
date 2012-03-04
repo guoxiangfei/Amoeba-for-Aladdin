@@ -40,6 +40,10 @@ public class QueryCommandMessageHandler extends CommandMessageHandler {
                     statement = ((java.sql.Connection) conn).createStatement();
                     rs = statement.executeQuery(query);
                     if (logger.isDebugEnabled()) {
+                        /**
+                         * 把log输出到project.log文件中，类似于下面：
+                         * 2012-03-04 20:58:08,765 DEBUG handler.QueryCommandMessageHandler$QueryCommandRunnable - starting query:select * from teacher
+                         */
                         logger.debug("starting query:" + query);
                     }
                     PoolableJdbcConnection poolableJdbcConnection = (PoolableJdbcConnection) conn;

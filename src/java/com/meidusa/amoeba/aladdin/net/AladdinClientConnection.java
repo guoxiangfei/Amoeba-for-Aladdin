@@ -6,10 +6,18 @@ import com.meidusa.amoeba.mysql.net.MysqlClientConnection;
 
 public class AladdinClientConnection extends MysqlClientConnection {
 
+	/**
+	 * 构造函数，继承其父类
+	 * @param channel
+	 * @param createStamp
+	 */
 	public AladdinClientConnection(SocketChannel channel, long createStamp) {
 		super(channel, createStamp);
 	}
-
+	/**
+	 * 得到模式（schema）
+	 * 该方法目前没有实现
+	 */
 	public void setSchema(String schema) {
 		//ignore client mysql schema
 		//	this.schema = schema;

@@ -477,9 +477,18 @@ public abstract class ProxyRuntimeContext implements Reporter {
         }
         ParameterMapping.mappingObject(config, map);
     }
-
+    /**
+     * 把一些log信息输入到project.log文件中
+     */
     public void appendReport(StringBuilder buffer, long now, long sinceLast, boolean reset, Level level) {
-        for (Map.Entry<String, ObjectPool> entry : getPoolMap().entrySet()) {
+    	/**
+    	 * 把log输出到project.log文件中，生成的代码类似下面这个样子的
+    	 * * Server pool=server1 - pool active Size=0, pool Idle size=1
+    	   * Server pool=server2 - pool active Size=0, pool Idle size=1
+           * Server pool=multiPool - pool active Size=0, pool Idle size=2
+           * Server pool=_null_table_ - pool active Size=0, pool Idle size=1
+    	 */
+    	for (Map.Entry<String, ObjectPool> entry : getPoolMap().entrySet()) {
             ObjectPool pool = entry.getValue();
             String poolName = entry.getKey();
             buffer.append("* Server pool=").append(poolName == null ? "default pool" : poolName).append("\n").append(" - pool active Size=").append(pool.getNumActive());

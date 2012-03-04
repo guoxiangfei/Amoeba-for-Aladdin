@@ -11,14 +11,31 @@ import com.meidusa.amoeba.net.Connection;
 public class AladdinClientConnectionManager extends MysqlClientConnectionManager {
 
     private static byte[] authenticateOkPacketData;
-
+    /**
+     * 构造函数
+     * 没有实现
+     * @throws IOException
+     */
     public AladdinClientConnectionManager() throws IOException{
     }
-
+    /**
+     * 构造函数
+     * 直接调用父类的构造函数
+     * @param name 名称？？？目前不知道这个名称指代什么
+     * @param port 端口号
+     * @throws IOException
+     */
     public AladdinClientConnectionManager(String name, int port) throws IOException{
         super(name, port);
     }
-
+    /**
+     * 构造函数
+     * 直接调用父类的构造函数
+     * @param name  名称？？？目前不知道这个名称指代什么
+     * @param ipAddress ip地址
+     * @param port 端口号
+     * @throws IOException
+     */
     public AladdinClientConnectionManager(String name, String ipAddress, int port) throws IOException{
         super(name, ipAddress, port);
     }

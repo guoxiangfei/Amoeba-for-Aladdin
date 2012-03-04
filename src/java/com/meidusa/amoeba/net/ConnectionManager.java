@@ -81,9 +81,16 @@ public class ConnectionManager extends LoopingThread implements Reporter, Initia
     public void setIdleCheckTime(long idleCheckTime) {
         this.idleCheckTime = idleCheckTime;
     }
-
+    /**
+     * 把这些内容写入到project.log文件中
+     */
     public void appendReport(StringBuilder report, long now, long sinceLast, boolean reset, Level level) {
-        report.append("* ").append(this.getName()).append("\n");
+        /**   把log输出到report.log文件中，输出内容类似于：
+         *  - Registed Connection size: 0
+			- created Connection size: 0
+			- disconnect Connection size: 0
+         */
+    	report.append("* ").append(this.getName()).append("\n");
         report.append("- Registed Connection size: ").append(_selector.keys().size()).append("\n");
         report.append("- created Connection size: ").append(_stats.connects.get()).append("\n");
         report.append("- disconnect Connection size: ").append(_stats.disconnects.get()).append("\n");

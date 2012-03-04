@@ -38,7 +38,12 @@ public abstract class DatabaseConnection extends AuthingableConnection{
 	public String getCharset() {
 		return charset;
 	}
-
+	
+	/**
+	 * 把log输出到project.log文件中，输出内容类似于：
+	 * 2012-03-04 20:56:28,515 DEBUG net.DatabaseConnection - set client charset=gbk
+	 * @param charset
+	 */
 	public void setCharset(String charset) {
 		this.charset = charset;
 		if(logger.isDebugEnabled()){

@@ -102,6 +102,11 @@ public class QueryCommandPacket extends CommandPacket {
 
     @Override
     public String toString() {
+    	/**
+    	 * 输出结果类似于下面：
+2012-03-04 20:57:53,734 DEBUG handler.AladdinMessageDispatcher - COM_INIT_DB:      [Length=   5, PacketId= 0, Command= 2, Query=test]
+2012-03-04 20:58:08,578 DEBUG handler.AladdinMessageDispatcher - COM_QUERY:        [Length=  22, PacketId= 0, Command= 3, Query=select * from teacher]
+    	 */
         StringBuilder s = new StringBuilder();
         s.append("[Length=").append(StringFillFormat.format(packetLength, 4));
         s.append(", PacketId=").append(StringFillFormat.format(packetId, 2));

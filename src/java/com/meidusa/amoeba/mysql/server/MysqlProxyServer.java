@@ -58,9 +58,16 @@ public class MysqlProxyServer {
 	}
 
 	/**
+	 * 该函数生成日志文件，并保存到project.log中
 	 * Generates and logs a "state of server" report.
 	 */
 	protected static String generateReport(long now, boolean reset) {
+		/* 把log输出到report.log文件中，输出内容类似于：
+		 * 2012-03-04 20:56:17,312 INFO  report -  State of server report:
+		- Uptime: 1m 1s 641ms
+		- Report period: 1m 1s 641ms
+		- Memory: 30322k used, 251264k total, 251264k max
+		*/
 		long sinceLast = now - lastReportStamp;
 		long uptime = now - serverStartTime;
 		StringBuilder report = new StringBuilder(" State of server report:\n");

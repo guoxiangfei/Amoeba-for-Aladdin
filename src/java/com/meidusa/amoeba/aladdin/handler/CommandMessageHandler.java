@@ -41,6 +41,14 @@ public abstract class CommandMessageHandler implements MessageHandler, Sessionab
     private final Lock              lock        = new ReentrantLock(false);
     private Map<Object, ObjectPool> connPoolMap = new HashMap<Object, ObjectPool>();
 
+    /**
+     * 构造函数，给CommandMessageHandler类中的成员变量赋值
+     * @param source
+     * @param query
+     * @param parameter
+     * @param pools
+     * @param timeout
+     */
     public CommandMessageHandler(MysqlClientConnection source, String query, Object parameter, ObjectPool[] pools,
                                  long timeout){
         this.source = source;
