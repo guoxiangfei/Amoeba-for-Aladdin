@@ -7,7 +7,12 @@ import java.util.Properties;
  * @author hexianmao
  */
 public class ConfigUtil {
-
+	/**
+	 * 
+	 * @param text
+	 * @return
+	 * @throws ConfigurationException
+	 */
     public static String filter(String text) throws ConfigurationException {
         return filter(text, System.getProperties());
     }
@@ -27,6 +32,7 @@ public class ConfigUtil {
                 break;
             }
             result.append(text.substring(cur, propStart));
+            System.out.println(result);
             // result = result + text.substring(cur, propStart);
             propStop = text.indexOf("}", propStart);
             if (propStop < 0) {

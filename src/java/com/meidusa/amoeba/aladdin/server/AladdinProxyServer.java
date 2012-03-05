@@ -137,8 +137,11 @@ public class AladdinProxyServer {
      * @throws IOException
      */
     public static void main(String[] args) throws IOException {
+    	
         String log4jConf = System.getProperty("log4j.conf", "${amoeba.home}/conf/log4j.xml");
+        System.out.println(log4jConf);
         log4jConf = ConfigUtil.filter(log4jConf);
+        System.out.println("Hello World");
         File logconf = new File(log4jConf);
         if (logconf.exists() && logconf.isFile()) {
             DOMConfigurator.configureAndWatch(logconf.getAbsolutePath(), System.getProperties());
@@ -188,6 +191,7 @@ public class AladdinProxyServer {
         aladdin.start();
 
         logReport();
+        System.out.println("Hello World");
     }
 
 }
