@@ -88,41 +88,71 @@ public abstract class ProxyRuntimeContext implements Reporter {
 
     private QueryRouter                    queryRouter;
     private String                         serverCharset;
-
+    /**
+     * 返回context的值
+     * @return context
+     */
     public static ProxyRuntimeContext getInstance() {
         return context;
     }
-
+    /**
+     * 构造函数，给成员变量context赋值
+     * @param context
+     */
     protected static void setInstance(ProxyRuntimeContext context) {
         ProxyRuntimeContext.context = context;
     }
-
+    /**
+     * 抽象函数
+     * @return
+     */
     protected abstract String getDefaultServerConnectionFactoryClassName();
-
+    /**
+     * 返回DEFAULT_SERVER_CONNECTION_MANAGER_CLASS的值
+     * @return "com.meidusa.amoeba.net.AuthingableConnectionManager"
+     */
     protected String getDefaultServerConnectionManagerClassName() {
         return DEFAULT_SERVER_CONNECTION_MANAGER_CLASS;
     }
-
+    /**
+     * 返回 DEFAULT_REAL_POOL_CLASS的值
+     * @return "com.meidusa.amoeba.net.poolable.PoolableObjectPool"
+     */
     protected String getDefaultRealPoolClassName() {
         return DEFAULT_REAL_POOL_CLASS;
     }
-
+    /**
+     * 返回DEFAULT_VIRTUAL_POOL_CLASS的值
+     * @return "com.meidusa.amoeba.server.MultipleServerPool"
+     */
     protected String getDefaultVirtualPoolClassName() {
         return DEFAULT_VIRTUAL_POOL_CLASS;
     }
-
+    /**
+     * 服务器的字符集serverCharset
+     * @return serverCharset
+     */
     public String getServerCharset() {
         return serverCharset;
     }
-
+    /**
+     * 给成员变量serverCharset赋值
+     * @param serverCharset
+     */
     public void setServerCharset(String serverCharset) {
         this.serverCharset = serverCharset;
     }
-
+    /**
+     * 返回config的值，目前不知道config有什么用？？？？？？？？？？？？？？？？
+     * @return config
+     */
     public ProxyServerConfig getConfig() {
         return config;
     }
-
+    /**
+     * 
+     * @return queryRouter
+     */
     public QueryRouter getQueryRouter() {
         return queryRouter;
     }
@@ -276,7 +306,11 @@ public abstract class ProxyRuntimeContext implements Reporter {
             }
         }
     }
-
+    /**
+     * 解析amoeba.dtd
+     * @param configFileName
+     * @return
+     */
     private ProxyServerConfig loadConfig(String configFileName) {
         DocumentBuilder db;
 
@@ -302,7 +336,6 @@ public abstract class ProxyRuntimeContext implements Reporter {
                     }
                 }
             });
-
             db.setErrorHandler(new ErrorHandler() {
 
                 public void warning(SAXParseException exception) {
@@ -362,6 +395,7 @@ public abstract class ProxyRuntimeContext implements Reporter {
 
                 final String nodeName = child.getNodeName();
                 if (nodeName.equals("server")) {
+//                	System.out.println(child.getChildNodes());
                     loadServerConfig(child, config);
                 } else if (nodeName.equals("connectionManagerList")) {
                     loadConnectionManagers(child, config);
@@ -458,7 +492,11 @@ public abstract class ProxyRuntimeContext implements Reporter {
             }
         }
     }
-
+    /**
+     * 把conf/amoeba.xml中server结点对应的信息添加到map中
+     * @param current
+     * @param config
+     */
     private void loadServerConfig(Element current, ProxyServerConfig config) {
         NodeList children = current.getChildNodes();
         int childSize = children.getLength();
@@ -495,5 +533,4 @@ public abstract class ProxyRuntimeContext implements Reporter {
             buffer.append(", pool Idle size=").append(pool.getNumIdle()).append("\n");
         }
     }
-
 }

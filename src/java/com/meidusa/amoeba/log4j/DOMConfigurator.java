@@ -14,6 +14,7 @@ import java.util.Properties;
 
 /**
  * 从XML文件配置log4j的工具类。和Log4j默认的<code>DOMConfigurator</code>相比，这个类允许提供额外的properties对象，在配置文件中被引用。
+ * 这个类就是用来配置守护进程，写log的时候会用到
  */
 public class DOMConfigurator extends org.apache.log4j.xml.DOMConfigurator {
     private Properties props;
@@ -145,7 +146,7 @@ public class DOMConfigurator extends org.apache.log4j.xml.DOMConfigurator {
         XMLWatchdog xdog = new XMLWatchdog(filename, props);
 
         xdog.setDelay(interval);
-        xdog.start();
+        xdog.start();//守护进程，开始监控
     }
 
     /**
@@ -174,7 +175,7 @@ public class DOMConfigurator extends org.apache.log4j.xml.DOMConfigurator {
     }
 
     /**
-     * 监控线程。
+     * 监控线程
      */
     private static class XMLWatchdog extends FileWatchdog {
         private Properties props;

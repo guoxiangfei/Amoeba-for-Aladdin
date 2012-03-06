@@ -18,6 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * 该类的成员和amoeba.xml中的属性很像
  * @author <a href=mailto:piratebase@sina.com>Struct chen</a>
  * @author hexianmao
  */
@@ -61,91 +62,157 @@ public class ProxyServerConfig {
     public void addServer(String name, DBServerConfig serverConfig) {
         dbServers.put(name, serverConfig);
     }
-
+    /**
+     * 得到amoeba的ip
+     * @return ipAddress
+     */
     public String getIpAddress() {
         return ipAddress;
     }
-
+    /**
+     * 给成员变量ipAddress赋值
+     * @param ipAddress
+     */
     public void setIpAddress(String ipAddress) {
         this.ipAddress = ipAddress;
     }
-
+    /**
+     * 得到amoeba的端口号port
+     * @return port
+     */
     public int getPort() {
         return port;
     }
-
+    /**
+     * 给成员变量port赋值
+     * @param port
+     */
     public void setPort(int port) {
         this.port = port;
     }
-
+    /**
+     * 返回amoeba的readThreadPoolSize值，在amoeba.xml中配置
+     * @return
+     */
     public int getReadThreadPoolSize() {
         return readThreadPoolSize;
     }
-
+    /**
+     * 给成员变量readThreadPoolSize赋值
+     * @param readThreadPoolSize
+     */
     public void setReadThreadPoolSize(int readThreadPoolSize) {
         this.readThreadPoolSize = readThreadPoolSize;
     }
-
+    /**
+     * 返回amoeba的serverSideThreadPoolSize值，在amoeba.xml中配置
+     * @return serverSideThreadPoolSize
+     */
     public int getServerSideThreadPoolSize() {
         return serverSideThreadPoolSize;
     }
-
+    /**
+     * 给成员变量serverSideThreadPoolSize赋值
+     * @param serverSideThreadPoolSize
+     */
     public void setServerSideThreadPoolSize(int serverSideThreadPoolSize) {
         this.serverSideThreadPoolSize = serverSideThreadPoolSize;
     }
-
+    /**
+     * 返回amoeba的clientSideThreadPoolSize值，在amoeba.xml中配置
+     * @return clientSideThreadPoolSize
+     */
     public int getClientSideThreadPoolSize() {
         return clientSideThreadPoolSize;
     }
-
+    /**
+     * 给成员变量clientSideThreadPoolSize赋值
+     * @param clientSideThreadPoolSize
+     */
     public void setClientSideThreadPoolSize(int clientSideThreadPoolSize) {
         this.clientSideThreadPoolSize = clientSideThreadPoolSize;
     }
-
+    /**
+     * 返回amoeba的user，在amoeba.xml中配置
+     * @return
+     */
     public String getUser() {
         return user;
     }
-
+    /**
+     * 给成员变量user赋值
+     * @param user
+     */
     public void setUser(String user) {
         this.user = user;
     }
-
+    /**
+     * 返回amoeba的password,在amoeba.xml中配置
+     * @return
+     */
     public String getPassword() {
         return password;
     }
-
+    /**
+     * 给成员变量password赋值
+     * @param password
+     */
     public void setPassword(String password) {
         this.password = password;
     }
-
+    /**
+     * 返回成员变量queryRouterConfig，目前不知道有什么用？？？？？
+     * @return
+     */
     public BeanObjectEntityConfig getQueryRouterConfig() {
         return queryRouterConfig;
     }
-
+    /**
+     * 给成员变量赋值，目前不知道有什么用？
+     * @param queryRouterConfig
+     */
     public void setQueryRouterConfig(BeanObjectEntityConfig queryRouterConfig) {
         this.queryRouterConfig = queryRouterConfig;
     }
-
+    /**
+     * 返回amoeba的netBufferSize，在amoeba.xml中配置
+     * @return
+     */
     public int getNetBufferSize() {
         return netBufferSize;
     }
-
+    /**
+     * 给成员变量netBufferSize赋值
+     * @param netBufferSize
+     */
     public void setNetBufferSize(int netBufferSize) {
         this.netBufferSize = netBufferSize;
     }
-
+    /**
+     * tcpNoDelay判断tcp是否需要等待，设置amoeba的tcpNoDelay，在amoeba.xml中配置
+     * @return
+     */
     public boolean isTcpNoDelay() {
         return tcpNoDelay;
     }
-
+    /**
+     * 给成员变量tcpNoDelay赋值
+     * @param tcpNoDelay
+     */
     public void setTcpNoDelay(boolean tcpNoDelay) {
         this.tcpNoDelay = tcpNoDelay;
     }
-
+    /**
+     * 设置amoeba的serverCharset，在amoeba.xml中配置
+     * @return
+     */
     public String getServerCharset() {
         return serverCharset;
     }
-
+    /**
+     * 给成员变量serverCharset赋值
+     * @param serverCharset
+     */
     public void setServerCharset(String serverCharset) {
         this.serverCharset = serverCharset;
     }

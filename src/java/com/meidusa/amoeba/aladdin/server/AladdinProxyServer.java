@@ -138,31 +138,33 @@ public class AladdinProxyServer {
      */
     public static void main(String[] args) throws IOException {
     	
-        String log4jConf = System.getProperty("log4j.conf", "${amoeba.home}/conf/log4j.xml");
-        System.out.println(log4jConf);
+//        String log4jConf = System.getProperty("log4j.conf", "${amoeba.home}/conf/log4j.xml");
+    	String log4jConf = System.getProperty("log4j.conf", "${user.dir}/conf/log4j.xml");
         log4jConf = ConfigUtil.filter(log4jConf);
-        System.out.println("Hello World");
+        System.out.println("log4j.xml config = "+log4jConf);
         File logconf = new File(log4jConf);
         if (logconf.exists() && logconf.isFile()) {
             DOMConfigurator.configureAndWatch(logconf.getAbsolutePath(), System.getProperties());
         }
         Logger logger = Logger.getLogger(AladdinProxyServer.class);
 
-        String config = System.getProperty("amoeba.conf", "${amoeba.home}/conf/amoeba.xml");
+//        String config = System.getProperty("amoeba.conf", "${amoeba.home}/conf/amoeba.xml");
+        String config = System.getProperty("amoeba.conf", "${user.dir}/conf/amoeba.xml");
         config = ConfigUtil.filter(config);
+        System.out.println("amoeba.xml config = "+config);
         File configFile = new File(config);
         if (config == null || !configFile.exists()) {
             logger.error("could not find config file:" + configFile.getAbsolutePath());
             System.exit(-1);
         }
-
         ProxyRuntimeContext context = new MysqlProxyRuntimeContext();
         ProxyRuntimeContext.getInstance().init(configFile.getAbsolutePath());
+        System.out.println("Yes Or Not 123");
         registerReporter(context);
         for (ConnectionManager connMgr : context.getConnectionManagerList().values()) {
             registerReporter(connMgr);
         }
-
+        
         AladdinClientConnectionManager aladdin = new AladdinClientConnectionManager(name,
                                                                                     context.getConfig().getIpAddress(),
                                                                                     context.getConfig().getPort());

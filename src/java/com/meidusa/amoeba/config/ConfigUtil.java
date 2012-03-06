@@ -8,7 +8,7 @@ import java.util.Properties;
  */
 public class ConfigUtil {
 	/**
-	 * 
+	 * 得到text中保持的文件在工程文件中的路径
 	 * @param text
 	 * @return
 	 * @throws ConfigurationException
@@ -16,7 +16,13 @@ public class ConfigUtil {
     public static String filter(String text) throws ConfigurationException {
         return filter(text, System.getProperties());
     }
-
+    /**
+     * 得到text中保持的文件在工程文件中的路径
+     * @param text
+     * @param properties
+     * @return
+     * @throws ConfigurationException
+     */
     public static String filter(String text, Properties properties) throws ConfigurationException {
         // String result = "";
         StringBuilder result = new StringBuilder();
@@ -32,7 +38,6 @@ public class ConfigUtil {
                 break;
             }
             result.append(text.substring(cur, propStart));
-            System.out.println(result);
             // result = result + text.substring(cur, propStart);
             propStop = text.indexOf("}", propStart);
             if (propStop < 0) {
