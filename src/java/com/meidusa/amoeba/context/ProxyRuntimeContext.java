@@ -160,7 +160,10 @@ public abstract class ProxyRuntimeContext implements Reporter {
     static class ReNameableThreadExecutor extends ThreadPoolExecutor {
 
         // Map<Thread,String> threadNameMap = new HashMap<Thread,String>();
-
+    	/**
+    	 * 
+    	 * @param poolSize 譬如amoeba.xml server结点的readThreadPoolSize的值
+    	 */
         public ReNameableThreadExecutor(int poolSize){
             super(poolSize, poolSize, Long.MAX_VALUE, TimeUnit.NANOSECONDS, new LinkedBlockingQueue<Runnable>());
         }
@@ -210,14 +213,19 @@ public abstract class ProxyRuntimeContext implements Reporter {
     }
 
     private List<Initialisable> initialisableList = new ArrayList<Initialisable>();
-
+    /**
+     * 
+     * @param file
+     */
     public void init(String file) {
-        config = loadConfig(file);
+        config = loadConfig(file);//譬如file指代的是amoeba.xml,config保存的是amoeba.xml中的全部信息
         readExecutor = new ReNameableThreadExecutor(config.getReadThreadPoolSize());
         serverSideExecutor = new ReNameableThreadExecutor(config.getServerSideThreadPoolSize());
         clientSideExecutor = new ReNameableThreadExecutor(config.getClientSideThreadPoolSize());
         serverCharset = config.getServerCharset();
-
+        /**
+         * 没有看懂
+         */
         for (Map.Entry<String, BeanObjectEntityConfig> entry : config.getManagers().entrySet()) {
             BeanObjectEntityConfig beanObjectEntityConfig = entry.getValue();
             try {
@@ -307,13 +315,14 @@ public abstract class ProxyRuntimeContext implements Reporter {
         }
     }
     /**
-     * 解析amoeba.dtd
-     * @param configFileName
-     * @return
+     * 解析amoeba.dtd,其实就是解析amoeba.xml
+     * configFileName = "F:\\project\\Amoeba\\Aladdin\\conf\\amoeba.xml"
+     * @param configFileName 
+     * @return 保存的是amoeba.xml中的全部信息（ProxyServerConfig类型）
      */
     private ProxyServerConfig loadConfig(String configFileName) {
         DocumentBuilder db;
-
+//        System.out.println(configFileName);
         try {
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             dbf.setValidating(true);
@@ -351,13 +360,19 @@ public abstract class ProxyRuntimeContext implements Reporter {
                     throw exception;
                 }
             });
+            // configFileName = "F:\\project\\Amoeba\\Aladdin\\conf\\amoeba.xml"
             return loadConfigurationFile(configFileName, db);
         } catch (Exception e) {
             logger.fatal("Could not load configuration file, failing", e);
             throw new ConfigurationException("Error loading configuration file " + configFileName, e);
         }
     }
-
+    /**
+     * 解析amoeba.xml
+     * @param fileName 类似 "F:\\project\\Amoeba\\Aladdin\\conf\\amoeba.xml"
+     * @param db
+     * @return config 保存的是amoeba.xml中的全部信息
+     */
     private ProxyServerConfig loadConfigurationFile(String fileName, DocumentBuilder db) {
         Document doc = null;
         InputStream is = null;
@@ -412,12 +427,21 @@ public abstract class ProxyRuntimeContext implements Reporter {
         }
         return config;
     }
-
+    /**
+     * 分析amoeba.xml中queryRouter结点信息
+     * @param current
+     * @param config
+     */
     private void loadQueryRouter(Element current, ProxyServerConfig config) {
         BeanObjectEntityConfig queryRouter = DocumentUtil.loadBeanConfig(DocumentUtil.getTheOnlyElement(current, "queryRouter"));
         config.setQueryRouterConfig(queryRouter);
     }
-
+    /**
+     * 分析amoeba.xml中dbServerList结点信息
+     * @param current
+     * @param config
+     * @author Li Hui
+     */
     private void loadServers(Element current, ProxyServerConfig config) {
         NodeList children = current.getChildNodes();
         int childSize = children.getLength();
@@ -445,11 +469,18 @@ public abstract class ProxyRuntimeContext implements Reporter {
                         serverConfig.getFactoryConfig().setClassName(getDefaultServerConnectionFactoryClassName());
                     }
                 }
-                config.addServer(serverConfig.getName(), serverConfig);
+                /**
+                 * 把每一个dbServer，譬如dbServer1节点中的信息所有信息保存到serverConfig中
+                 */
+                config.addServer(serverConfig.getName(), serverConfig);//添加config为(dbServer1,dbServer1中的全部信息）
             }
         }
     }
-
+    /**
+     * 分析amoeba.xml中dbServerList结点中dbServer子节点信息
+     * @param current
+     * @return
+     */
     private DBServerConfig loadServer(Element current) {
         DBServerConfig serverConfig = new DBServerConfig();
         NamedNodeMap nodeMap = current.getAttributes();
@@ -476,7 +507,12 @@ public abstract class ProxyRuntimeContext implements Reporter {
 
         return serverConfig;
     }
-
+    /**
+     * 分析amoeba.xml中connectionManagerList结点信息
+     * 通过调试，目前并没有发现有什么具体作用
+     * @param current
+     * @param config
+     */
     private void loadConnectionManagers(Element current, ProxyServerConfig config) {
         NodeList children = current.getChildNodes();
         int childSize = children.getLength();

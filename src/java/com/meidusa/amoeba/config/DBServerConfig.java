@@ -11,6 +11,11 @@
  */
 package com.meidusa.amoeba.config;
 
+/**
+ * 存储amoeba.xml中的dbServerList结点的子结点dbServer信息
+ * @author Li Hui
+ *
+ */
 public class DBServerConfig extends ConfigEntity implements Cloneable{
 	private static final long serialVersionUID = 1L;
 	private String name;

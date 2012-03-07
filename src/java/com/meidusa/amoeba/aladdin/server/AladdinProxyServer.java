@@ -33,6 +33,8 @@ import com.meidusa.amoeba.util.Reporter;
 import com.meidusa.amoeba.util.StringUtil;
 
 /**
+ * 所有程序的入口
+ * @author Li Hui
  * @author <a href=mailto:piratebase@sina.com>Struct chen</a>
  * @author hexianmao
  */
@@ -158,6 +160,7 @@ public class AladdinProxyServer {
             System.exit(-1);
         }
         ProxyRuntimeContext context = new MysqlProxyRuntimeContext();
+        //configFile 来自 /conf/amoeba.xml文件流
         ProxyRuntimeContext.getInstance().init(configFile.getAbsolutePath());
         System.out.println("Yes Or Not 123");
         registerReporter(context);

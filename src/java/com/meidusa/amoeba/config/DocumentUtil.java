@@ -21,7 +21,11 @@ import org.w3c.dom.NodeList;
 import com.meidusa.amoeba.util.StringUtil;
 
 
-
+/**
+ * 用于分析amoeba.xml中queryRouter结点的信息
+ * @author Li Hui
+ *
+ */
 public class DocumentUtil {
 
 	/**
@@ -44,7 +48,11 @@ public class DocumentUtil {
 			return null;
 		}
 	}
-	
+	/**
+	 * 解析amoeba.xml中的每一个property的name以及对应的值
+	 * @param current
+	 * @return
+	 */
 	public static BeanObjectEntityConfig loadBeanConfig(Element current) {
 		if(current == null){
 			return null;
@@ -59,7 +67,10 @@ public class DocumentUtil {
         }else{
         	beanConfig.setClassName(current.getAttribute("class"));
         }
-        
+        /**
+         * 用于保存amoeba.xml中的每一个property的name以及对应的值
+         * 譬如（ruleConfig,${amoeba.home}/conf/rule.xml）
+         */
         Map<String,Object> map = new HashMap<String,Object>();
         for (int i = 0; i < childSize; i++) {
             Node childNode = children.item(i);

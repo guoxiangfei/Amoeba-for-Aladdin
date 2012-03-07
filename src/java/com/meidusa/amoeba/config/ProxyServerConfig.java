@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 该类的成员和amoeba.xml中的属性很像
+ * 用于保存amoeba.xml中的全部信息
  * @author <a href=mailto:piratebase@sina.com>Struct chen</a>
  * @author hexianmao
  */
@@ -41,7 +41,9 @@ public class ProxyServerConfig {
 
     private Map<String, BeanObjectEntityConfig> managers                 = new HashMap<String, BeanObjectEntityConfig>();
     private Map<String, BeanObjectEntityConfig> unmodifiableManagers     = Collections.unmodifiableMap(managers);
-
+    /**
+     * dbServers对应amoeba.xml中的dbServerList结点，用于保存所有的dbServer
+     */
     private Map<String, DBServerConfig>         dbServers                = new HashMap<String, DBServerConfig>();
     private Map<String, DBServerConfig>         unmodifiableDbServers    = Collections.unmodifiableMap(dbServers);
 
@@ -58,7 +60,11 @@ public class ProxyServerConfig {
     public Map<String, DBServerConfig> getDbServers() {
         return unmodifiableDbServers;
     }
-
+    /**
+     * 把当前考察的dbServer put到dbServers中
+     * @param name dbServer结点的名称，譬如dbServer1
+     * @param serverConfig dbServer结点的全部信息，譬如dbServer1的全部信息
+     */
     public void addServer(String name, DBServerConfig serverConfig) {
         dbServers.put(name, serverConfig);
     }
@@ -161,14 +167,15 @@ public class ProxyServerConfig {
         this.password = password;
     }
     /**
-     * 返回成员变量queryRouterConfig，目前不知道有什么用？？？？？
+     * 返回成员变量queryRouterConfig
+     * queryRouterConfig 用于记录amoeba.xml中queryRouter结点的信息
      * @return
      */
     public BeanObjectEntityConfig getQueryRouterConfig() {
         return queryRouterConfig;
     }
     /**
-     * 给成员变量赋值，目前不知道有什么用？
+     * queryRouterConfig 用于记录amoeba.xml中queryRouter结点的信息
      * @param queryRouterConfig
      */
     public void setQueryRouterConfig(BeanObjectEntityConfig queryRouterConfig) {
