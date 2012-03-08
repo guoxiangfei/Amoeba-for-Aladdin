@@ -28,7 +28,8 @@ public class LoopingThread extends Thread {
     }
 
     /**
-     * 指定一个特殊的命名
+     * 
+     * @param name "Aladdin proxy Server"
      */
     public LoopingThread(String name){
         super(name);

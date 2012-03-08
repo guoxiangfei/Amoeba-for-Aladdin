@@ -3,6 +3,8 @@ package com.meidusa.amoeba.config;
 import java.util.Properties;
 
 /**
+ * text是一个类似${user.dir}/conf/access_list.conf这样的字符串，
+ * 对这个目录进行处理，最终得到对应文件的在工程文件中的路径
  * @author <a href=mailto:piratebase@sina.com>Struct chen</a>
  * @author hexianmao
  */

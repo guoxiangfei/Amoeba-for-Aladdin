@@ -56,7 +56,11 @@ public class AladdinProxyServer {
 
     /** report time interval */
     private final static long            reportInterval  = 5 * 60 * 1000L;
-
+    /**
+     * 把reporter中的添加到reporters中
+     * reporter保存的是amoeba.xml经过特定的数据结构储存后的信息
+     * @param reporter
+     */
     protected static void registerReporter(Reporter reporter) {
         reporters.add(reporter);
     }
@@ -162,8 +166,8 @@ public class AladdinProxyServer {
         ProxyRuntimeContext context = new MysqlProxyRuntimeContext();
         //configFile 来自 /conf/amoeba.xml文件流
         ProxyRuntimeContext.getInstance().init(configFile.getAbsolutePath());
-        System.out.println("Yes Or Not 123");
         registerReporter(context);
+        //context中保持的有amoeba.xml的全部信息，下面这个for是把connectionManagerList中的信息添加到reporters中
         for (ConnectionManager connMgr : context.getConnectionManagerList().values()) {
             registerReporter(connMgr);
         }
@@ -172,15 +176,18 @@ public class AladdinProxyServer {
                                                                                     context.getConfig().getIpAddress(),
                                                                                     context.getConfig().getPort());
         registerReporter(aladdin);
+        //factory是Amoeba Proxy Server的连接工厂，实际上就是应用程序与Amoeba Proxy Server连接的username、pwd等
         AladdinClientConnectionFactory factory = new AladdinClientConnectionFactory();
         factory.setPassword(context.getConfig().getPassword());
         factory.setUser(context.getConfig().getUser());
-        aladdin.setConnectionFactory(factory);
-        factory.setConnectionManager(aladdin);
+        aladdin.setConnectionFactory(factory);//把连接工factory添加到aladdin中
+        factory.setConnectionManager(aladdin);//？？？？这句和上面这句有点像链表
 
         MysqlAuthenticator auth = new MysqlAuthenticator();
-        String accessConf = System.getProperty("access.conf", "${amoeba.home}/conf/access_list.conf");
+//        String accessConf = System.getProperty("access.conf", "${amoeba.home}/conf/access_list.conf");//源程序版本
+        String accessConf = System.getProperty("access.conf", "${user.dir}/conf/access_list.conf");//修改后的版本
         accessConf = ConfigUtil.filter(accessConf);
+        System.out.println(accessConf);
         IPAccessController ipfilter = new IPAccessController();
         ipfilter.setIpFile(accessConf);
         try {

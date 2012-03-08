@@ -40,7 +40,9 @@ public class MysqlAuthenticator extends DummyAuthenticator implements MySqlPacke
 	public MysqlAuthenticator() {
 		
 	}
-
+	/**
+	 * 
+	 */
 	protected void processAuthentication(AuthingableConnection conn,
 			AuthResponseData rdata) {
 		MysqlClientConnection mysqlConn = (MysqlClientConnection)conn;
@@ -59,6 +61,7 @@ public class MysqlAuthenticator extends DummyAuthenticator implements MySqlPacke
 				if(conn.getInetAddress() != null && map.get(conn.getInetAddress().getHostAddress()) == null){
 					map.put(conn.getInetAddress().getHostAddress(), Boolean.TRUE);
 					long clientParam = autheticationPacket.clientParam;
+					//生成的日子信息保存在project.log中
 					StringBuilder builder = new StringBuilder();
 					builder.append("\n");
 					builder.append("===========").append(conn.getInetAddress().getHostAddress())

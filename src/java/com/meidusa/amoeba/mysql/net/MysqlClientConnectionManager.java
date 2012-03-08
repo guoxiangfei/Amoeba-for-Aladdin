@@ -40,7 +40,13 @@ public class MysqlClientConnectionManager extends ServerableConnectionManager {
     public MysqlClientConnectionManager(String name, int port) throws IOException{
         super(name, port);
     }
-
+    /**
+     * 
+     * @param name "Aladdin proxy Server"
+     * @param ipAddress Aladdin proxyµÄip
+     * @param port Aladdin proxyµÄip port
+     * @throws IOException
+     */
     public MysqlClientConnectionManager(String name, String ipAddress, int port) throws IOException{
         super(name, ipAddress, port);
     }

@@ -69,7 +69,7 @@ public class ProxyServerConfig {
         dbServers.put(name, serverConfig);
     }
     /**
-     * 得到amoeba的ip
+     * 得到amoeba的ip，在amoeba.xml中存储
      * @return ipAddress
      */
     public String getIpAddress() {
@@ -83,7 +83,7 @@ public class ProxyServerConfig {
         this.ipAddress = ipAddress;
     }
     /**
-     * 得到amoeba的端口号port
+     * 得到amoeba的端口号port,在amoeba.xml中存储
      * @return port
      */
     public int getPort() {
@@ -139,7 +139,7 @@ public class ProxyServerConfig {
         this.clientSideThreadPoolSize = clientSideThreadPoolSize;
     }
     /**
-     * 返回amoeba的user，在amoeba.xml中配置
+     * 返回Amoeba Proxy Server的user，在amoeba.xml中配置
      * @return
      */
     public String getUser() {

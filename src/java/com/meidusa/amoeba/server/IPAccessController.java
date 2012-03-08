@@ -33,8 +33,11 @@ public class IPAccessController implements AuthenticateFilter, Initialisable {
     private static final String DENAY_MESSAGE = "Access denied for ip: '${host}' to amoeba server";
     private boolean             isEnabled;
     private String[]            ipRule        = null;
-    private String              ipFile;
-
+    private String              ipFile;  //"access_list.conf"
+    /**
+     * 
+     * @param ipFile "access_list.conf"
+     */
     public void setIpFile(String ipFile) {
         this.ipFile = ipFile;
     }
@@ -108,7 +111,11 @@ public class IPAccessController implements AuthenticateFilter, Initialisable {
 
         return true;
     }
-
+    /**
+     * java apache log4j FileWatchdogµƒ“ª–©≈‰÷√£ø£ø£ø£ø
+     * @author Li Hui
+     *
+     */
     private class IPAccessFileWatchdog extends FileWatchdog {
 
         public IPAccessFileWatchdog(String filename){

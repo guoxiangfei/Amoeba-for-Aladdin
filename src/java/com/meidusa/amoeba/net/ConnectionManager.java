@@ -104,7 +104,11 @@ public class ConnectionManager extends LoopingThread implements Reporter, Initia
         // create our stats record
         _stats = new ConMgrStats();
     }
-
+    /**
+     * 
+     * @param managerName "Aladdin proxy Server"
+     * @throws IOException
+     */
     public ConnectionManager(String managerName) throws IOException{
         super(managerName);
         _selector = SelectorProvider.provider().openSelector();

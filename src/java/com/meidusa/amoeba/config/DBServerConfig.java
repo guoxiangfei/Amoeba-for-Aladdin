@@ -62,7 +62,9 @@ public class DBServerConfig extends ConfigEntity implements Cloneable{
 	public void setPoolConfig(BeanObjectEntityConfig poolConfig) {
 		this.poolConfig = poolConfig;
 	}
-	
+	/**
+	 * 对象的复制
+	 */
 	public Object clone(){
 		DBServerConfig config = new DBServerConfig();
 		config.isVirtual = isVirtual;

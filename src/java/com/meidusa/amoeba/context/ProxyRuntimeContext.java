@@ -63,6 +63,7 @@ import com.meidusa.amoeba.util.Reporter;
 import com.meidusa.amoeba.util.StringUtil;
 
 /**
+ * Amoeba运行时的一些信息（context），包括amoeba.xml中的所有信息等、、、、、
  * @author <a href=mailto:piratebase@sina.com>Struct chen</a>
  */
 public abstract class ProxyRuntimeContext implements Reporter {
@@ -143,7 +144,7 @@ public abstract class ProxyRuntimeContext implements Reporter {
         this.serverCharset = serverCharset;
     }
     /**
-     * 返回config的值，目前不知道config有什么用？？？？？？？？？？？？？？？？
+     * 返回config的值，config中保持的有amoeba.xml的全部信息，包括ip，ipaddress port,dbserver,server1,connectionManagerList等等
      * @return config
      */
     public ProxyServerConfig getConfig() {
@@ -224,7 +225,7 @@ public abstract class ProxyRuntimeContext implements Reporter {
         clientSideExecutor = new ReNameableThreadExecutor(config.getClientSideThreadPoolSize());
         serverCharset = config.getServerCharset();
         /**
-         * 没有看懂
+         * 猜测：config中保持的有amoeba.xml中的全部配置信息，下面这个for是根据connectionManagerList进行相应处理
          */
         for (Map.Entry<String, BeanObjectEntityConfig> entry : config.getManagers().entrySet()) {
             BeanObjectEntityConfig beanObjectEntityConfig = entry.getValue();
@@ -237,7 +238,9 @@ public abstract class ProxyRuntimeContext implements Reporter {
                 throw new ConfigurationException("manager instance error", e);
             }
         }
-
+        /**
+         * config中保存有amoeba.xml的全部配置信息，下面这个for是根据dbServerList中的信息进行相应的处理
+         */
         for (Map.Entry<String, DBServerConfig> entry : config.getDbServers().entrySet()) {
             DBServerConfig dbServerConfig = entry.getValue();
             try {
@@ -255,10 +258,10 @@ public abstract class ProxyRuntimeContext implements Reporter {
                 }
                 poolMap.put(entry.getKey(), pool);
             } catch (Exception e) {
-                throw new ConfigurationException("manager instance error", e);
+//                throw new ConfigurationException("manager instance error", e);//原作者有这个抛出异常的语句,调试的时候会报错，就把它注释掉了
             }
         }
-
+        //config中保存有amoeba.xml的全部配置信息，下面这个for是根据queryRouter中的信息进行相应的处理
         if (config.getQueryRouterConfig() != null) {
             BeanObjectEntityConfig queryRouterConfig = config.getQueryRouterConfig();
             try {
@@ -267,7 +270,7 @@ public abstract class ProxyRuntimeContext implements Reporter {
                     initialisableList.add((Initialisable) queryRouter);
                 }
             } catch (Exception e) {
-                throw new ConfigurationException("queryRouter instance error", e);
+//                throw new ConfigurationException("queryRouter instance error", e);//原作者有这个抛出异常的语句,调试的时候会报错，就把它注释掉了
             }
         }
 
@@ -304,7 +307,10 @@ public abstract class ProxyRuntimeContext implements Reporter {
             }
         }
     }
-
+    /**
+     * initialisableList中保持的是amoeba.xml的配置信息的另一种形式（先前的形式是config）
+     * 把initialisableList中的信息添加到bean中
+     */
     private void initAllInitialisableBeans() {
         for (Initialisable bean : initialisableList) {
             try {

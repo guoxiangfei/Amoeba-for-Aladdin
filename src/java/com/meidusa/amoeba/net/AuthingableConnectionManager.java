@@ -26,7 +26,11 @@ public class AuthingableConnectionManager extends ConnectionManager {
 
     public AuthingableConnectionManager() throws IOException{
     }
-
+    /**
+     * 
+     * @param managerName "Aladdin proxy Server"
+     * @throws IOException
+     */
     public AuthingableConnectionManager(String managerName) throws IOException{
         super(managerName);
     }

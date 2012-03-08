@@ -13,6 +13,11 @@
  */
 package com.meidusa.amoeba.util;
 
+/**
+ * 目前没有看懂
+ * @author Li Hui
+ *
+ */
 public interface Initialisable {
 
     public void init() throws InitialisationException;

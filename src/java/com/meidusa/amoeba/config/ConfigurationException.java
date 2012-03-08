@@ -15,7 +15,7 @@ import java.io.PrintStream;
 import java.io.PrintWriter;
 
 /**
- * 
+ * 配置文件过程中的异常处理类
  * @author <a href=mailto:piratebase@sina.com>Struct chen</a>
  * @version $Id: ConfigurationException.java 2418 2006-09-19 02:54:18Z struct $
  */

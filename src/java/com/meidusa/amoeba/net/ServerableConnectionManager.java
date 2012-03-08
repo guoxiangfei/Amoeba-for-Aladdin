@@ -44,13 +44,22 @@ public class ServerableConnectionManager extends AuthingableConnectionManager {
         super(name);
         this.port = port;
     }
-
+    /**
+     * 
+     * @param name "Aladdin proxy Server"
+     * @param ipAddress Aladdin proxy的ip
+     * @param port Aladdin proxy的ip port
+     * @throws IOException
+     */
     public ServerableConnectionManager(String name, String ipAddress, int port) throws IOException{
         super(name);
         this.port = port;
         this.ipAddress = ipAddress;
     }
-
+    /**
+     * Amoeba Proxy Server的连接工厂，实际上就是应用程序与Amoeba Proxy Server连接的user,pwd等
+     * @param connFactory
+     */
     public void setConnectionFactory(ConnectionFactory connFactory) {
         this.connFactory = connFactory;
         if (connFactory instanceof AbstractConnectionFactory) {
