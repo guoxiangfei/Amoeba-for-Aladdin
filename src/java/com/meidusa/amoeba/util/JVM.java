@@ -19,6 +19,12 @@ import java.util.Map;
 import com.meidusa.amoeba.bean.PureJavaReflectionProvider;
 import com.meidusa.amoeba.bean.ReflectionProvider;
 
+/**
+ * JVM类
+ * 包括当前运行环境下java的版本等
+ * @author Li Hui
+ *
+ */
 @SuppressWarnings("unchecked")
 public class JVM {
 

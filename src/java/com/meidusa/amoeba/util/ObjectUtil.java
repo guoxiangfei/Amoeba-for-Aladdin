@@ -11,6 +11,12 @@
  */
 package com.meidusa.amoeba.util;
 
+/**
+ * 递归地比较两个数组是否相同，支持多维数组
+ * 如果比较的对象不是数组，则此方法的结果同<code>ObjectUtil.equals</code>。
+ * @author Li Hui
+ *
+ */
 public class ObjectUtil {
 	/**
      * 递归地比较两个数组是否相同，支持多维数组。

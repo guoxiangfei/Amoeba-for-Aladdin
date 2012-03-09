@@ -18,6 +18,11 @@ import java.util.List;
 import com.meidusa.amoeba.parser.expression.Expression;
 import com.meidusa.amoeba.sqljep.ParseException;
 
+/**
+ * 把时间转换成想要的类型类
+ * @author Li Hui
+ *
+ */
 public class TimeForType extends AbstractFunction{
 	public static final int YEAR = 1;
 	public static final int MONTH = 2;
@@ -30,7 +35,7 @@ public class TimeForType extends AbstractFunction{
 	public static final int MICROSECOND = 21;
 	private int field;
 	/**
-	 * 时间的变换
+	 * 根据需要（以上选择的field不同）得到不同的时间类型
 	 */
 	@SuppressWarnings("unchecked")
 	public Comparable evaluate(List<Expression> list, Object[] parameters)
@@ -71,10 +76,10 @@ public class TimeForType extends AbstractFunction{
 		this.field = field;
 	}
 	
-//	public static void main(String args[]){
-//		Calendar cal = Calendar.getInstance();
-//		int result = cal.get(MILLISECOND);
-//		System.out.println(cal.getTime());
-//		System.out.println(result);
-//	}
+	public static void main(String args[]){
+		Calendar cal = Calendar.getInstance();
+		int result = cal.get(MILLISECOND);
+		System.out.println(cal.getTime());
+		System.out.println(result);
+	}
 }

@@ -196,14 +196,15 @@ public class AladdinProxyServer {
             logger.error("init IPAccessController error:", e1);
             System.exit(-1);
         }
+        //ipfilter中保持的是access_list.conf中每一行的有效字符串，以及文件名
         auth.setFilter(ipfilter);
 
-        aladdin.setAuthenticator(auth);
+        aladdin.setAuthenticator(auth);//把权限属性添加到aladdin中
         aladdin.setExecutor(context.getReadExecutor());
         aladdin.start();
 
         logReport();
-        System.out.println("Hello World");
+        System.out.println("Hello World 123");
     }
 
 }

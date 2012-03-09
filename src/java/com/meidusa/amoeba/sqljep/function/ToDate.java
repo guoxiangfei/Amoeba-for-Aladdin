@@ -21,7 +21,11 @@ import com.meidusa.amoeba.sqljep.ASTFunNode;
 import com.meidusa.amoeba.sqljep.BaseJEP;
 import com.meidusa.amoeba.sqljep.JepRuntime;
 import com.meidusa.amoeba.sqljep.ParseException;
-
+/**
+ * 把一串字符串转化为时间类型的变量
+ * @author Li Hui
+ *
+ */
 public class ToDate extends PostfixCommand {
 	static final String PARAM_EXCEPTION = "Format shoud be string";
 	private static final String FORMAT_EXCEPTION = "Wrong timestamp";
@@ -83,7 +87,8 @@ public class ToDate extends PostfixCommand {
 		}
 	}
 	
-	public static void main(String args[]) throws ParseException{
+	public static void main(String args[]) throws ParseException{//作者原来的写法
+//	public static void main(String args[]){
 		System.out.println(to_date("99-00-00 00:00:0000"));
 		
 		Date.valueOf("1999-11-21").getTime();

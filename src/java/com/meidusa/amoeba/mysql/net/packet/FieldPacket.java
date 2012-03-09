@@ -18,6 +18,8 @@ import java.io.UnsupportedEncodingException;
 import com.meidusa.amoeba.net.packet.AbstractPacketBuffer;
 
 /**
+ * 猜测：数据在网络流中传送时的data field
+ * @author Li Hui
  * @author <a href=mailto:piratebase@sina.com>Struct chen</a>
  */
 public class FieldPacket extends AbstractPacket {

@@ -9,10 +9,14 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 import com.meidusa.amoeba.net.Connection;
 
 /**
+ * 数据包抽象类
  * @author struct
  */
 public abstract class AbstractPacket implements Packet {
-
+	 /**
+     * 从buffer(含包头) 中初始化数据包
+     * @param buffer buffer是从socketChannel的流读取头n个字节计算数据包长度 并且读取相应的长度所形成的buffer
+     */
     public void init(byte[] buffer, Connection conn) {
         AbstractPacketBuffer packetBuffer = constractorBuffer(buffer);
         packetBuffer.init(conn);
@@ -30,7 +34,9 @@ public abstract class AbstractPacket implements Packet {
      */
     protected void afterInit(AbstractPacketBuffer buffer) {
     }
-
+    /**
+     * 将数据包转化成ByteBuffer,byteBuffer中包含有包头信息
+     */
     public ByteBuffer toByteBuffer(Connection conn) {
         try {
             int bufferSize = calculatePacketSize();

@@ -19,6 +19,12 @@ import com.meidusa.amoeba.sqljep.ASTFunNode;
 import com.meidusa.amoeba.sqljep.JepRuntime;
 import com.meidusa.amoeba.sqljep.ParseException;
 
+/**
+ * 时间的相加
+ * 把时间转化为毫秒后进行相加
+ * @author Li Hui
+ *
+ */
 public class AddDate extends PostfixCommand {
 	final public int getNumberOfParameters() {
 		return 2;
@@ -47,7 +53,7 @@ public class AddDate extends PostfixCommand {
 			}
 			else if (param1 instanceof java.sql.Date) {
 				java.sql.Date d = (java.sql.Date)param1;
-				return new java.sql.Date(d.getTime()+days*86400000);
+				return new java.sql.Date(d.getTime()+days*86400000);//把时间转化为毫秒
 			} else {
 				throw new ParseException();
 			}

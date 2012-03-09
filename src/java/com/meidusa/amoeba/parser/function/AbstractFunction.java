@@ -16,7 +16,7 @@ import java.util.List;
 import com.meidusa.amoeba.parser.expression.Expression;
 
 /**
- * 
+ * ³éÏóº¯ÊıÀà
  * @author <a href=mailto:piratebase@sina.com>Struct chen</a>
  *
  */

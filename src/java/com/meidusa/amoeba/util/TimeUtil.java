@@ -17,11 +17,23 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.TimeZone;
 
+/**
+ * 时间解析类
+ * 根据不同的需求，得到不同的时间
+ * @author Li Hui
+ *
+ */
 public class TimeUtil {
 	public static final int TIMESTAMP = 1;
 	public static final int DATE = 2;
 	public static final int TIME = 3;
-	
+	/**
+	 * 
+	 * @param original 时间
+	 * @param type 想解析得到的时间类型
+	 * @return
+	 * @throws SQLException
+	 */
 	public static java.util.Date parseDateTime(String original, int type) throws SQLException {
 	        String s = original;
 	        if (s == null) {
@@ -66,13 +78,13 @@ public class TimeUtil {
 	                    throw new SQLException("error format:"+s+" must format hh:mm:ss");
 	                }
 
-	                if (s.endsWith("Z")) {
+	                if (s.endsWith("Z")) {//判断时间s的格式，或者区段
 	                    s = s.substring(0, s.length() - 1);
 	                    tz = TimeZone.getTimeZone("UTC");
 	                } else {
 	                    int timeZoneStart = s.indexOf('+', s2 + 1);
 	                    if (timeZoneStart < 0) {
-	                        timeZoneStart = s.indexOf('-', s2 + 1);
+	                        timeZoneStart = s.indexOf('-', s2 + 1);//单步调试的时候，发现这一句和main中给出的例子不吻合，程序会报错的
 	                    }
 	                    if (timeZoneStart >= 0) {
 	                        String tzName = "GMT" + s.substring(timeZoneStart);
@@ -83,7 +95,7 @@ public class TimeUtil {
 	                        s = s.substring(0, timeZoneStart).trim();
 	                    }
 	                }
-
+	                System.out.println(s.substring(timeStart, s1));
 	                hour = Integer.parseInt(s.substring(timeStart, s1));
 	                minute = Integer.parseInt(s.substring(s1 + 1, s2));
 	                if (s3 < 0) {
@@ -153,10 +165,11 @@ public class TimeUtil {
     
     public static void main(String[] args){
     	try {
+    		System.out.println("Hello World");
 			System.out.println(parseDateTime("1998-02-03 22:23:00",TIME));
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+//			e.printStackTrace();
 		};
     }
 

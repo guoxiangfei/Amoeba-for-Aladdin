@@ -18,6 +18,11 @@ import java.util.List;
 import com.meidusa.amoeba.parser.expression.Expression;
 import com.meidusa.amoeba.sqljep.ParseException;
 
+/**
+ * ÇóÃşº¯ÊıÀà
+ * @author Li Hui
+ *
+ */
 public class Modulus extends AbstractFunction {
 
 	/**

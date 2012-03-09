@@ -1,5 +1,10 @@
 package com.meidusa.amoeba.util;
 
+/**
+ * 定义静态成员的类
+ * @author Li Hui
+ *
+ */
 public interface StaticString {
 
     public static final String DATE_FORMAT_SYMBOLS = "DATE_FORMAT_SYMBOLS";

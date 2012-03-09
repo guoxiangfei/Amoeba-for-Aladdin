@@ -52,7 +52,12 @@ public abstract class MysqlConnection extends DatabaseConnection {
         _outQueue.append(ByteBuffer.wrap(msg));
         _cmgr.invokeConnectionWriteMessage(this);
     }
-	
+	/**
+	 * 当客户端连接到Aladdin Proxy Server的时候，出在dos界面输出一下信息
+	 * 2012-03-08 13:26:39,343 INFO  net.AladdinClientConnection - Connection Authentic
+	 * ate success [ conn=com.meidusa.amoeba.aladdin.net.AladdinClientConnection@175.18
+	 * 6.53.110:1408,hashcode=13655059].
+	 */
 	public String toString(){
 		try{
 			return this.getClass().getName()+"@"+(this.getChannel()!= null?this.getChannel().socket().toString():"not connected")+", hashcode="+this.hashCode();

@@ -17,7 +17,9 @@ import java.util.List;
 import com.meidusa.amoeba.parser.expression.Expression;
 
 /**
- * 
+ * 当前时间类
+ * 返回当前的时间，精确到微妙，譬如 2012-02-26 18:43:46.187
+ * @author Li Hui
  * @author <a href=mailto:piratebase@sina.com>Struct chen</a>
  * 
  */
@@ -32,8 +34,8 @@ public class Now extends AbstractFunction implements RealtimeCalculator {
 		return new Timestamp(System.currentTimeMillis());
 	}
 
-//	public static void main(String args[]) {
-//		Comparable num = new Timestamp(System.currentTimeMillis());
-//		System.out.println(num.toString());
-//	}
+	public static void main(String args[]) {
+		Comparable num = new Timestamp(System.currentTimeMillis());
+		System.out.println(num.toString());
+	}
 }

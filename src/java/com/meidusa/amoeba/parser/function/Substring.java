@@ -6,6 +6,8 @@ import com.meidusa.amoeba.parser.expression.Expression;
 import com.meidusa.amoeba.sqljep.ParseException;
 
 /**
+ * 子字符串处理类
+ * @author Li Hui
  * @author struct
  */
 public class Substring extends AbstractFunction {

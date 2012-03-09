@@ -4,6 +4,11 @@ import java.nio.channels.SocketChannel;
 
 import com.meidusa.amoeba.mysql.net.MysqlClientConnection;
 
+/**
+ * 客户端连接到Aladdin Proxy Server类
+ * @author Li Hui
+ *
+ */
 public class AladdinClientConnection extends MysqlClientConnection {
 
 	/**

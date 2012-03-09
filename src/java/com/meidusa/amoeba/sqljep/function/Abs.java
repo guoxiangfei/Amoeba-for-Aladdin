@@ -18,7 +18,11 @@ import com.meidusa.amoeba.sqljep.function.PostfixCommand;
 import com.meidusa.amoeba.sqljep.ASTFunNode;
 import com.meidusa.amoeba.sqljep.JepRuntime;
 import com.meidusa.amoeba.sqljep.ParseException;
-
+/**
+ * 求绝对值类
+ * @author Li Hui
+ *
+ */
 public class Abs extends PostfixCommand {
 	/**
 	 * 返回参数的个数，因为这个类是用于求绝对值，所以参数个数为1

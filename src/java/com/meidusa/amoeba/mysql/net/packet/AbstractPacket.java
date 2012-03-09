@@ -22,6 +22,8 @@ import com.meidusa.amoeba.net.packet.AbstractPacketBuffer;
 import com.meidusa.amoeba.util.StringFillFormat;
 
 /**
+ * 数据包 抽象类
+ * 猜测：这个应该是用于Aladdin Proxy Server与MySQL之间的数据包
  * @author <a href=mailto:piratebase@sina.com>Struct chen</a>
  * @author hexianmao
  */
@@ -44,6 +46,7 @@ public class AbstractPacket extends com.meidusa.amoeba.net.packet.AbstractPacket
 
     /**
      * 估算packet的大小，估算的太大浪费内存，估算的太小会影响性能
+     * 这里假设数据包头的长度是4+1
      */
     protected int calculatePacketSize() {
         return HEADER_SIZE + 1;

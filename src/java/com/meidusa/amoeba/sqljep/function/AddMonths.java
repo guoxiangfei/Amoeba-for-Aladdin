@@ -22,6 +22,12 @@ import com.meidusa.amoeba.sqljep.ParseException;
 import com.meidusa.amoeba.util.StaticString;
 import com.meidusa.amoeba.util.ThreadLocalMap;
 
+/**
+ * 时间相加
+ * 把时间精确到月后进行相加
+ * @author Li Hui
+ *
+ */
 public class AddMonths extends PostfixCommand {
 	final public int getNumberOfParameters() {
 		return 2;

@@ -22,6 +22,8 @@ import com.meidusa.amoeba.sqljep.JepRuntime;
 import com.meidusa.amoeba.sqljep.ParseException;
 
 /**
+ * SQL中的like语句类
+ * 判断两个字符串是否相似
  * Like algorithm. It supports two variants of syntax. The first is SQL syntax. 
  * The second is JRE regexp syntax. By default SQL syntax is used. To use regexp
  * syntax put pattern into slashes. For example "/^10*.?/"

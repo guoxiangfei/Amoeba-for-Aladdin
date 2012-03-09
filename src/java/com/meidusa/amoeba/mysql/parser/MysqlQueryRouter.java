@@ -36,6 +36,7 @@ public class MysqlQueryRouter extends AbstractQueryRouter{
 	}
 
 	protected ObjectPool[] selectPool(DatabaseConnection connection,String sql,boolean ispreparedStatment,Object[] parameters){
+		//这段if语句可以参考下面的main函数，主要是过滤sql中的一些没有用的信息
 		if(sql != null){
 			sql = sql.trim();
 			while(sql.startsWith("/*")){
@@ -85,6 +86,6 @@ public class MysqlQueryRouter extends AbstractQueryRouter{
 			}
 			sql = sql.trim();
 		}
-		System.out.println(sql);
+		System.out.println(sql);//show asdf
 	}
 }

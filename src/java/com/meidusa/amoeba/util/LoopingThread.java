@@ -16,7 +16,8 @@ package com.meidusa.amoeba.util;
 import org.apache.log4j.Logger;
 
 /**
- * 该类作为线程提供了循环的基本功能，能够处理一个简单的循环。 最大特点是每一次通过循环，事件处理线程可以轻易地安排处理类似事件队列。
+ * 该类作为线程提供了循环的基本功能，能够处理一个简单的循环。 
+ * 最大特点是每一次通过循环，事件处理线程可以轻易地安排处理类似事件队列。
  */
 public class LoopingThread extends Thread {
 

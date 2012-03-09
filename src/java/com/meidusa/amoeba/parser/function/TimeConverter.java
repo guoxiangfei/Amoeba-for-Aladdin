@@ -20,6 +20,11 @@ import java.util.StringTokenizer;
 import com.meidusa.amoeba.parser.expression.Expression;
 import com.meidusa.amoeba.sqljep.ParseException;
 
+/**
+ * 时间转换类
+ * @author Li Hui
+ *
+ */
 public class TimeConverter extends AbstractFunction {
 
 	private int defaultField = -1 ;
@@ -120,9 +125,9 @@ public class TimeConverter extends AbstractFunction {
 		}
 	}
 	
-//	public static void main(String args[]){
-//		Calendar tmp = Calendar.getInstance();
-//		System.out.println(tmp.getTime().toString());
-//	}
+	public static void main(String args[]){
+		Calendar tmp = Calendar.getInstance();
+		System.out.println(tmp.getTime().toString());
+	}
 
 }

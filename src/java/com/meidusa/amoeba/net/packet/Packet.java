@@ -18,6 +18,8 @@ import java.nio.ByteBuffer;
 import com.meidusa.amoeba.net.Connection;
 
 /**
+ * 数据包接口
+ * @author Li Hui
  * @author <a href=mailto:piratebase@sina.com>Struct chen</a>
  */
 public interface Packet extends Cloneable {

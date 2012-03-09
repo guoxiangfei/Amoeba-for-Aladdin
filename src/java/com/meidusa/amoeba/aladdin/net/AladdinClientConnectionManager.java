@@ -8,6 +8,7 @@ import com.meidusa.amoeba.mysql.net.packet.OkPacket;
 import com.meidusa.amoeba.net.AuthResponseData;
 import com.meidusa.amoeba.net.Connection;
 /**
+ * 客户端连接到Aladdin Proxy Server的连接管理类
  * Aladdin Proxy中的一些基本信息，包括ip,port name等
  * @author Li Hui
  *

@@ -48,16 +48,16 @@ public class Main {
 		
 		sqljep.parseExpression(columnMapping,valMap,AbstractQueryRouter.ruleFunTab);
 		long start = System.currentTimeMillis();
-		for(int i=0;i<1000;i++){
+		for(int i=0;i<2;i++){
 		
-		try {
-		   
-		   System.out.println(sqljep.getValue(row));
-		   //sqljep.getValue(row);
-		}
-		catch (ParseException e) {
-		   e.printStackTrace();
-		}
+			try {
+			   
+			   System.out.println(sqljep.getValue(row));
+			   //sqljep.getValue(row);
+			}
+			catch (ParseException e) {
+			   e.printStackTrace();
+			}
 		}
 		 System.out.println("totle:"+(System.currentTimeMillis() -start));
 	}

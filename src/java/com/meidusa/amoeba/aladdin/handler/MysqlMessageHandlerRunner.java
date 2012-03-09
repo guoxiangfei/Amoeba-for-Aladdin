@@ -24,7 +24,8 @@ import com.meidusa.amoeba.xmltable.XmlTable;
 import com.meidusa.amoeba.xmltable.XmlTableLoader;
 
 /**
- * 这个负责mysql 特有的一些 select query 的应答,该类只是简单的将一些特殊sql进行从xmltable 文件中进行定位。 然后反馈给客户端一些数据
+ * 这个负责mysql 特有的一些 select query 的应答,该类只是简单的将一些特殊sql进行从xmltable 文件中进行定位。 
+ * 然后反馈给客户端一些数据
  * 
  * @author struct
  */

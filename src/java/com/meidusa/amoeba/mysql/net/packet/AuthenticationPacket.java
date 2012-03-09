@@ -21,6 +21,8 @@ import com.meidusa.amoeba.mysql.util.Util;
 import com.meidusa.amoeba.net.packet.AbstractPacketBuffer;
 
 /**
+ * 认证数据包 类
+ * 主要包括客户端链接到服务器时候的一些认证信息，譬如用户名、密码、数据库等
  * From client to server during initial handshake.
  * 
  * <pre>
@@ -101,6 +103,9 @@ public class AuthenticationPacket extends AbstractPacket {
         clientParam = buffer.readLong();
         maxThreeBytes = buffer.readLong();
         charsetNumber = buffer.readByte();
+        System.out.println("clientParam="+clientParam);
+        System.out.println("maxThreeBytes="+maxThreeBytes);
+        System.out.println("charsetNumber="+charsetNumber);
         // 跳过23个填充字节
         buffer.setPosition(buffer.getPosition() + 23);
         user = buffer.readString();
@@ -180,10 +185,12 @@ public class AuthenticationPacket extends AbstractPacket {
         }
 
     }
-
+    /**
+     * 计算数据包的长度
+     */
     protected int calculatePacketSize() {
         int packLength = super.calculatePacketSize();
-        int passwordLength = 16;
+        int passwordLength = 16;//密码长度一直是16？？？？
         int userLength = (user != null) ? user.length() : 0;
         int databaseLength = (database != null) ? database.length() : 0;
         packLength += ((userLength + passwordLength + databaseLength) * 2) + 7 + HEADER_SIZE + AUTH_411_OVERHEAD;
@@ -199,9 +206,13 @@ public class AuthenticationPacket extends AbstractPacket {
         auth.database = "test";
         auth.clientParam = 63487;
         auth.user = "testamoeba";
+        System.out.println("auth="+auth);
         AuthenticationPacket other = new AuthenticationPacket();
+//        for(int i=0;i<auth.toByteBuffer(null).array().length;i++){
+//        	System.out.println(auth.toByteBuffer(null).array()[i]);
+//        }
         other.init(auth.toByteBuffer(null).array(), null);
-        System.out.println(other);
+        System.out.println("other="+other);
 
         System.out.println(41516 & CLIENT_SECURE_CONNECTION);
     }

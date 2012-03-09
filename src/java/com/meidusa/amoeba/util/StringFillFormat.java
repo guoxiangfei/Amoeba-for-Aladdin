@@ -2,7 +2,7 @@ package com.meidusa.amoeba.util;
 
 /**
  * 字符串填充格式化工具
- * 
+ * @author Li Hui
  * @author hexianmao
  * @version 2008-11-24 下午12:58:17
  */

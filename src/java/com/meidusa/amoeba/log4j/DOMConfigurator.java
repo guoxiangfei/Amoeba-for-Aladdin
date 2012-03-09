@@ -184,7 +184,10 @@ public class DOMConfigurator extends org.apache.log4j.xml.DOMConfigurator {
             super(filename);
             this.props = props;
         }
-
+        /**
+         * 当执行amoeba start命令后，会在dos窗口输出这段话，类似于
+         * log4j:WARN log4j config load completed from file:F:\project\Amoeba\amoeba-aladdin-binary-1.0.0-BETA\bin\..\conf\log4j.xml
+         */
         public void doOnChange() {
             new DOMConfigurator(props).doConfigure(filename, LogManager.getLoggerRepository());
             LogLog.warn("log4j config load completed from file:"+filename);

@@ -27,8 +27,10 @@ import com.meidusa.amoeba.net.packet.AbstractPacketBuffer;
 import com.meidusa.amoeba.util.StringUtil;
 
 /**
- * 该类负责 发送、接收socket输入流，并且可以根据包头信息，构造出ByteBuffer
+ * 猜测：可能是用于Aladdin Proxy Server到MySQL连接的数据流缓存类
+ * @author Li Hui
  * 
+ * 该类负责 发送、接收socket输入流，并且可以根据包头信息，构造出ByteBuffer
  * @author <a href=mailto:piratebase@sina.com>Struct chen</a>
  * @author hexianmao
  */
@@ -50,7 +52,11 @@ public class MysqlPacketBuffer extends AbstractPacketBuffer {
             return packetLength;
         }
     }
-
+    /**
+     * 
+     * @param buf
+     * @author Li Hui
+     */
     public MysqlPacketBuffer(byte[] buf){
         super(buf);
         position = MySqlPacketConstant.HEADER_SIZE;
@@ -493,7 +499,7 @@ public class MysqlPacketBuffer extends AbstractPacketBuffer {
         return Float.intBitsToFloat(result);
     }
 
-    // 2000-06-05 Changed
+    //
     final void writeInt(int i) {
         ensureCapacity(2);
         byte[] b = this.buffer;

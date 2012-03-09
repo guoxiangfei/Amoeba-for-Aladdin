@@ -22,7 +22,8 @@ import com.meidusa.amoeba.mysql.util.CharsetMapping;
 import com.meidusa.amoeba.net.Connection;
 
 /**
- * 
+ * 把查询的结果集ResultSet转化成指定的网络中传输的数据域（data field）
+ * @author Li Hui
  * @author struct
  *
  */
@@ -48,6 +49,10 @@ public class ResultSetUtil {
 	}
 	
 	public static void resultSetToPacket(Connection source, MysqlResultSetPacket packet,ResultSet rs, ResultSetHandler handler) throws SQLException{
+		/**
+		 * 结果集(ResultSet)是数据中查询结果返回的一种对象，可以说结果集是一个存储查询结果的对象，
+		 * 但是结果集并不仅仅具有存储的功能，它同时还具有操纵数据的功能，可能完成对数据的更新等。
+		 */
 		ResultSetMetaData metaData = rs.getMetaData();
 		int colunmCount = metaData.getColumnCount();
 		synchronized (packet) {
@@ -143,14 +148,21 @@ public class ResultSetUtil {
 			}
 		}
 	}
-	
+	/**
+	 * 对每一个十六进制素质与0xff进行与，把与以后的数字保存在byte b[]中
+	 * @param hexString 十六进制数字组成的一个字符串，用空格隔开
+	 * @return b
+	 * @author Li Hui
+	 */
 	 public static byte[] fromHex(String hexString) {
 	            String[] hex = hexString.split(" ");
 	            byte[] b = new byte[hex.length];
 	            for (int i = 0; i < hex.length; i++) {
 	                b[i] = (byte) (Integer.parseInt(hex[i], 16) & 0xff);
+//	                System.out.print(hex[i]+" ");
+//	            	System.out.print(Integer.parseInt(hex[i], 16));
+//	            	System.out.println(" "+b[i]);
 	            }
-
 	            return b;
 	    }
 	
@@ -164,7 +176,7 @@ public class ResultSetUtil {
 			fields[i] = new FieldPacket();
 			fields[i].init(buffer);
 		}
-		System.out.println(1 | 0200);
+		System.out.println(1 | 0200);//八进制编码
 		
 	}
 }

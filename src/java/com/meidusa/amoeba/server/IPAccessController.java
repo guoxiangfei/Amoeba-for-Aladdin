@@ -23,7 +23,7 @@ import com.meidusa.amoeba.util.StringUtil;
 
 /**
  * IP 访问控制过滤 IP v4
- * 
+ * 在access_list.conf中配置的有需要过滤的ip
  * @author struct
  * @author hexianmao
  */
@@ -129,6 +129,10 @@ public class IPAccessController implements AuthenticateFilter, Initialisable {
             } else {
                 IPAccessController.this.ipRule = null;
             }
+            /**
+             * 当执行amoeba start命令后，会在dos窗口输出这段话，类似于
+             * log4j:WARN ip access config load completed from file:F:\project\Amoeba\amoeba-aladdin-binary-1.0.0-BETA\bin\../conf/access_list.conf
+             */
             LogLog.warn("ip access config load completed from file:" + filename);
         }
     }

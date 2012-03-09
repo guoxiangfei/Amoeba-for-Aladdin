@@ -25,6 +25,8 @@ import com.meidusa.amoeba.net.packet.AbstractPacketBuffer;
 import com.meidusa.amoeba.util.StringFillFormat;
 
 /**
+ * 目前没有看懂
+ * @author Li Hui
  * <pre>
  * Bytes                Name
  *  -----                ----
@@ -264,7 +266,9 @@ public class ExecutePacket extends CommandPacket {
 
         for (int i = 0; i < parameterCount; i++) {
             nullBitsBuffer[i / 8] |= (1 << (i & 7));
+            System.out.print(nullBitsBuffer[i / 8]+" ");
         }
+        System.out.println();
         System.out.println(Arrays.toString(nullBitsBuffer));
     }
 

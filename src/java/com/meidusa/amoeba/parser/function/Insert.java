@@ -5,6 +5,12 @@ import java.util.List;
 import com.meidusa.amoeba.parser.expression.Expression;
 import com.meidusa.amoeba.sqljep.ParseException;
 
+/**
+ * 插入函数类
+ * 主要用于字符串的插入
+ * @author Li Hui
+ *
+ */
 public class Insert extends AbstractFunction {
 
 	/**
@@ -33,6 +39,7 @@ public class Insert extends AbstractFunction {
 	
 	/**
 	 * 把字符串param1从pos开始的连续length个元素替换成newStr
+	 * @author Li Hui
 	 * @param param1
 	 * @param pos
 	 * @param length
@@ -62,7 +69,7 @@ public class Insert extends AbstractFunction {
 		return builder.toString();
 	}
 
-//	public static void main(String args[]){
-//		System.out.println(insert("Quadratic", 3, 3, "What"));
-//	}
+	public static void main(String args[]){
+		System.out.println(insert("Quadratic", 3, 3, "What"));
+	}
 }

@@ -90,6 +90,10 @@ public class ServerableConnectionManager extends AuthingableConnectionManager {
 
             Level level = log.getLevel();
             log.setLevel(Level.INFO);
+            /**
+             * 当执行amoeba start命令后，会在dos窗口输出这段话，类似于
+             * 2012-03-08 13:12:39,234 INFO  net.ServerableConnectionManager - Amoeba Monitor Server listening on /127.0.0.1:36190.
+             */
             log.info("Server listening on " + isa + ".");
             log.setLevel(level);
 

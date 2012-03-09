@@ -12,9 +12,9 @@
 package com.meidusa.amoeba.mysql.io;
 
 /**
- * 
+ * 数据包中的一些常量
+ * @author Li Hui
  * @author <a href=mailto:piratebase@sina.com>Struct chen</a>
- *
  */
 public interface MySqlPacketConstant {
 	public static final int HEADER_SIZE = 4;

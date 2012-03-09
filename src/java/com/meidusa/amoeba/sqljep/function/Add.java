@@ -19,11 +19,18 @@ import com.meidusa.amoeba.sqljep.function.PostfixCommand;
 import com.meidusa.amoeba.sqljep.ASTFunNode;
 import com.meidusa.amoeba.sqljep.JepRuntime;
 import com.meidusa.amoeba.sqljep.ParseException;
-
+/**
+ * 加法类
+ * @author Li Hui
+ *
+ */
 public final class Add extends PostfixCommand {
 	final static String DATE_ADDITION = "Wrong operation";
 	final static BigDecimal DAY_MILIS = new BigDecimal(86400000);
-	
+	/**
+	 * 因为是加法，所以有两个参数
+	 * @author Li Hui
+	 */
 	final public int getNumberOfParameters() {
 		return 2;
 	}

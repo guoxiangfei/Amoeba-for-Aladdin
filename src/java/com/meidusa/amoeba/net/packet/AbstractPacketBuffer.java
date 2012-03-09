@@ -10,7 +10,9 @@ import com.meidusa.amoeba.net.Connection;
  * @author struct
  */
 public class AbstractPacketBuffer implements PacketBuffer {
-
+	/**
+	 * 用于保存buffer数组的长度
+	 */
     protected int        length   = 0;
 
     protected int        position = 0;
@@ -21,7 +23,7 @@ public class AbstractPacketBuffer implements PacketBuffer {
 
     public AbstractPacketBuffer(byte[] buf){
         buffer = new byte[buf.length];
-        System.arraycopy(buf, 0, buffer, 0, buf.length);
+        System.arraycopy(buf, 0, buffer, 0, buf.length);//把buf中的内容copy到buffer中
         setPacketLength(buffer.length);
         position = 0;
     }
