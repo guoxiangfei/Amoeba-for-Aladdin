@@ -1,0 +1,2 @@
+主要用于客户端与Amoeba Proxy Server进行连接的一些处理
+传到com.meidusa.amoeba.aladdin.handler

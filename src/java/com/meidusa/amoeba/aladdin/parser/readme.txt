@@ -1,0 +1,1 @@
+Amoeba Proxy Server的路由选择，把查询分发到哪一个database server

@@ -1,0 +1,1 @@
+把查询的结果集ResultSet转化成指定的网络中传输的数据域（data field）

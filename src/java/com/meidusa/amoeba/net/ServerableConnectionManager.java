@@ -98,6 +98,10 @@ public class ServerableConnectionManager extends AuthingableConnectionManager {
             log.setLevel(level);
 
         } catch (IOException ioe) {
+        	/**
+        	 * 当执行amoeba start命令后，如果用于把amoba.xml中的amoeba的ip修改了，会出现下面这样的log
+        	 * 2012-03-09 19:41:09,687 ERROR net.ServerableConnectionManager - Failure listening to socket on port '8066'.
+        	 */
             log.error("Failure listening to socket on port '" + port + "'.", ioe);
             System.exit(-1);
         }
